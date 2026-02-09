@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPG Maker MV Tools - Database ConVerter MV-中文翻译</title>
+    <link rel="stylesheet" href="forum-style.css">
+    <style>
+        /* 基础样式重置与统一，不修改原有文字 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft Yahei", sans-serif;
+        }
+        body {
+            padding: 20px;
+            line-height: 1.6;
+        }
+        /* 返回按钮样式 */
+        .back-btn {
+            margin-bottom: 20px;
+            padding: 8px 16px;
+            cursor: pointer;
+        }
+        /* 简介、详细说明样式 */
+        .intro, .detail {
+            margin-bottom: 20px;
+        }
+        /* logo图片样式 */
+        .logo-img {
+            margin-bottom: 20px;
+            max-width: 100%;
+            height: auto;
+        }
+        /* 代码区域样式 */
+        .code-section {
+            margin: 20px 0;
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 4px;
+        }
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            padding: 10px;
+            background: #fff;
+            border-radius: 4px;
+            border: 1px solid #eee;
+        }
+        /* 更新历史样式 */
+        .update-history {
+            margin-bottom: 20px;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 4px;
+        }
+        /* 评论区样式（和之前保持一致） */
+        .comment-section {
+            margin-top: 30px;
+            max-width: 800px;
+        }
+        #comment-input, .reply-input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            resize: vertical;
+            min-height: 80px;
+        }
+        .reply-input {
+            min-height: 60px;
+            margin-left: 20px;
+            width: calc(100% - 20px);
+        }
+        .submit-btn, .reply-btn {
+            padding: 8px 16px;
+            background: #4285f4;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .reply-btn {
+            background: #0f9d58;
+            padding: 4px 8px;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+        .comments-list {
+            margin-top: 20px;
+        }
+        .comment {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #eee;
+            border-radius: 4px;
+        }
+        .reply {
+            margin: 10px 0 0 20px;
+            padding: 8px;
+            background: #f9f9f9;
+            border-radius: 4px;
+        }
+        .comment-meta {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        /* 页脚 */
+        footer {
+            margin-top: 48px;
+            text-align: center;
+            color: #999;
+            padding: 16px 0;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 返回按钮 -->
+    <button class="back-btn" onclick="history.back()">返回上一頁</button>
+
+    <!-- Logo图片 -->
+    <img src="./image/logo_ch.png" alt="数据库转换器MV" class="logo-img">
+
+    <!-- 简介 -->
+    <div class="intro">
+        <p>参照部分官方中文机翻，部分翻译的时候发现有些词是多意，所以选取了比较符合的翻译，覆盖原语言。</p>
+    </div>
+
+    <!-- 详细说明 -->
+    <div class="detail">
+        <p>
+            此软件具体作用：<a href="https://rpg.blue/thread-488799-1-1.html">【附机翻】将数据库转换为Excel或CSV格式的免费软件</a>
+            <br>使用后会直接将中文作为默认。 
+            <a href="https://pan.baidu.com/s/1jxo7ctPnFFlUhaZOnig0nQL">提取码63h8</a>
+            <br>文件覆盖方式：所在盘\SteamLibrary\steamapps\common\RPG Maker MV Tools - Database ConVerter MV\resources\app 把压缩包里的文件直接甩进去。 
+            <br>换回英文或日文时，请修改（上面的地址）中的package.json文件里的倒数第二行【"language": "ch"】的语言简写，日文为jp、英文为en。
+        </p>
+    </div>
+
+    <!-- 更新历史 -->
+    <div class="update-history">
+        2022年03月06日 首次提交
+        <br>2022年03月06日 修改错误翻译
+    </div>
+
+    <!-- 代码区域 -->
+    <div class="code-section">
+        <details>
+            <summary>查看代码</summary>
+            <pre>
+{
+    "init": "欢迎来到RPG制造商MV工具数据库转换器MV。< br >首先在“设置”选项卡中设置项目、导出选项，然后您可以使用“转换”选项卡导出/导入您的数据库。",
+    "title": "RPG Maker MV工具数据库转换器MV",
+    "help.project": "要转换的RPG Maker MV项目的完整路径。",
+    "help.excelDataPath": "创建数据库导出的路径。可以是“项目文件夹”下的完整路径或相对路径。",
+    "help.exportPrefix": "要添加到导出文件的可选前缀。如果要将导出的文件与要导入的文件分开，请设置。",
+    "help.database": "为选择数据库 import/export.",
+    "help.originalDatabase": "如果您有自定义数据库，您可以在此输入它们的名称。可以输入由逗号分隔的多个值。",
+    "help.fileFormat": "从列表中选择要导出的文件格式。",
+    "help.appAlwaysOnTop": "选中此项可使应用程序窗口始终位于其他窗口的顶部。",
+    "help.apTabLink01": "选项卡来更改各种设置。",
+    "help.apTabLink02": "选项卡启动数据库转换。",
+    "help.commonEventId": "输出的公共事件ID。可以分配多个逗号分隔的值。",
+    "help.mapId": "现有事件输出的映射ID。这在输出地图事件时是必要的。",
+    "help.mapEventId": "输出的事件ID。可以分配多个逗号分隔的值。",
+    "help.useTackTray": "将应用程序设置到任务栏。",
+    "help.backupPath": "导入前数据库的备份路径。可以是“项目文件夹”下的完整路径或相对路径。必须设置。",
+ 
+    "message.processStart": "正在处理，请稍候。",
+    "message.exportEnd": "导出完成。",
+    "message.importEnd": "导入完成。如果RPG Maker MV已打开，请在不保存的情况下关闭项目，然后再次打开项目。",
+ 
+    "validation.noProject": "%1不是RPG Maker MV项目路径。",
+    "validation.invalidDataPath": "%1包含无法在目录中创建的值。",
+    "validation.noDatabase": "没有选择兼容的数据库。",
+    "validation.required": "%1是必填字段。",
+    "validation.number": "请为%1输入一个等于或大于1的整数。",
+    "validation.numberArray": "请为%1输入一个等于或大于1的整数。(可能有多个逗号分隔的条目。)",
+ 
+    "element.apTabLink01": "设置",
+    "element.apTabLink02": "转换",
+    "element.headerProject": "项目文件夹",
+    "element.headerExcelDataPath": "导出文件夹",
+    "element.headerExportPrefix": "导出文件前缀",
+    "element.headerDatabase": "数据库",
+    "element.headerOriginalDatabase": "原始数据库",
+    "element.headerFileFormat": "导出文件格式",
+    "element.headerBackupPath": "备份文件夹",
+    "element.databaseActorsL": "角色",
+    "element.databaseClassesL": "等级",
+    "element.databaseSkillsL": "技能",
+    "element.databaseItemsL": "物品",
+    "element.databaseWeaponsL": "武器",
+    "element.databaseArmorsL": "装甲",
+    "element.databaseEnemiesL": "敌人",
+    "element.databaseTroopsL": "队伍",
+    "element.databaseStatesL": "状态",
+    "element.databaseMapInfosL": "地图信息",
+    "element.appAlwaysOnTopL": "总是在前面",
+    "element.useTackTrayL": "设置到任务栏",
+    "element.headerDatabaseConvert": "数据库",
+    "element.headerCommonConvert": "普通事件",
+    "element.headerMapConvert": "地图事件",
+    "element.commonEventIdL": "事件ID",
+    "element.mapIdL": "地图ID",
+    "element.mapEventIdL": "事件ID",
+    "button.export": "导出",
+    "button.import": "导入",
+    "button.folderSelect": "文件夹选择",
+    "command.quit": "退出",
+    "command.help": "帮助",
+    "dialog.selectFolder": "选择一个文件夹。",
+ 
+    "columns.event.code": "代码",
+    "columns.event.indent": "缩进",
+    "columns.event.codeName": "代码名字",
+    "columns.event.parameters0": "参数",
+    "columns.database.id": "Id",
+    "columns.database.name": "名字",
+    "columns.database.description": "描述",
+    "columns.database.traits": "特征",
+    "columns.database.effects": "特效",
+    "columns.database.note": "注意",
+    "columns.database.actions": "行动",
+    "columns.database.dropItems": "放弃项目",
+    "columns.database.members": "成员",
+    "columns.database.animationId": "动画Id",
+    "columns.database.hitType": "命中类型",
+    "columns.database.iconIndex": "图标索引",
+    "columns.database.occasion": "机会",
+    "columns.database.repeats": "重复",
+    "columns.database.scope": "范围",
+    "columns.database.speed": "速度",
+    "columns.database.successRate": "成功率",
+    "columns.database.tpCost": "TP成本",
+    "columns.database.tpGain": "TP增益",
+    "columns.database.mpCost": "MP成本",
+    "columns.database.damage_elementId": "伤害元素Id",
+    "columns.database.damage_type": "伤害类型",
+    "columns.database.damage_variance": "伤害变动",
+    "columns.database.damage_critical": "致命一击",
+    "columns.database.damage_formula": "伤害方式",
+    "columns.database.price": "价格",
+    "columns.database.params0": "最大HP",
+    "columns.database.params1": "最大MP",
+    "columns.database.params2": "攻击",
+    "columns.database.params3": "防御",
+    "columns.database.params4": "米.攻击",
+    "columns.database.params5": "米.防御",
+    "columns.database.params6": "敏捷",
+    "columns.database.params7": "幸运",
+    "columns.database.stypeId": "职业类型",
+    "columns.database.requiredWtypeId1": "所需武器类型1",
+    "columns.database.requiredWtypeId2": "所需武器类型2",
+    "columns.database.itypeId": "物品类型",
+    "columns.database.consumable": "消耗品",
+    "columns.database.wtypeId": "武器类型",
+    "columns.database.atypeId": "防御类型",
+    "columns.database.etypeId": "装备类型",
+    "columns.database.battlerHue": "战斗特征",
+    "columns.database.exp": "经验",
+    "columns.database.gold": "金钱",
+    "columns.database.autoRemovalTiming": "自动移除计时",
+    "columns.database.chanceByDamage": "移除伤害值",
+    "columns.database.maxTurns": "最大轮流持续时间",
+    "columns.database.minTurns": "持续时间(最小轮次)",
+    "columns.database.motion": "[SV]移动",
+    "columns.database.overlay": "[SV]覆盖",
+    "columns.database.priority": "优先",
+    "columns.database.removeAtBattleEnd": "战斗结束时移除",
+    "columns.database.removeByDamage": "通过伤害移除",
+    "columns.database.removeByRestriction": "通过限制移除",
+    "columns.database.removeByWalking": "通过移动移除",
+    "columns.database.restriction": "限制",
+    "columns.database.stepsToRemove": "通过移动的步骤移除",
+    "columns.database.battlerName": "战图名字",
+    "columns.database.characterIndex": "角色指数",
+    "columns.database.characterName": "角色名字",
+    "columns.database.classId": "等级Id",
+    "columns.database.equips": "装备",
+    "columns.database.faceIndex": "脸图指数",
+    "columns.database.faceName": "脸图名字",
+    "columns.database.initialLevel": "初始等级",
+    "columns.database.maxLevel": "最大等级",
+    "columns.database.nickname": "昵称",
+    "columns.database.profile": "简介",
+    "columns.database.expParams": "Exp参数",
+    "columns.database.learnings": "经验",
+    "columns.database.damage": "伤害",
+    "columns.database.message1": "文本消息1",
+    "columns.database.message2": "文本消息2",
+    "columns.database.pages": "页面",
+    "columns.database.message3": "文本消息3",
+    "columns.database.message4": "文本消息4",
+    "columns.database.releaseByDamage": "伤害抵消",
+    "columns.database.flags": "标志",
+    "columns.database.mode": "模式",
+    "columns.database.list": "列入",
+    "columns.database.switchId": "开关Id",
+    "columns.database.trigger": "触发",
+    "columns.database.tilesetNames": "图块名字",
+    "columns.database.expanded": "扩展",
+    "columns.database.order": "命令",
+    "columns.database.parentId": "起源Id",
+    "columns.database.scrollX": "横向滚动",
+    "columns.database.scrollY": "竖向滚动",
+    "code.event.0": "空白文件",
+    "code.event.101": "显示文本(设置)",
+    "code.event.102": "显示选项",
+    "code.event.103": "数字输入框",
+    "code.event.104": "选择项",
+    "code.event.401": "显示文本",
+    "code.event.402": "显示选项(当**)",
+    "code.event.403": "显示选项(取消时)",
+    "code.event.404": "显示选项(结束)",
+    "code.event.105": "显示滚动文本",
+    "code.event.405": "显示滚动文本(信息)",
+    "code.event.108": "注释",
+    "code.event.111": "条件分支",
+    "code.event.411": "条件分支(不同的)",
+    "code.event.412": "条件分支(结束)",
+    "code.event.112": "循环",
+    "code.event.413": "循环(重复上述步骤)",
+    "code.event.113": "中断循环",
+    "code.event.115": "退出事件处理",
+    "code.event.117": "公共事件",
+    "code.event.118": "标签",
+    "code.event.119": "跳转到标签",
+    "code.event.121": "控制开关",
+    "code.event.122": "控制变量",
+    "code.event.123": "控制自动开关",
+    "code.event.124": "控制定时器",
+    "code.event.125": "更改金钱",
+    "code.event.126": "变更对象",
+    "code.event.127": "更换武器",
+    "code.event.128": "更换装甲",
+    "code.event.129": "更改队员",
+    "code.event.132": "更改战斗BGM",
+    "code.event.133": "更改胜利BGM",
+    "code.event.134": "更改保存权限",
+    "code.event.135": "更改菜单访问",
+    "code.event.136": "更改需求",
+    "code.event.137": "更改编队",
+    "code.event.138": "更改窗口颜色",
+    "code.event.139": "更改战败ME",
+    "code.event.140": "更改载体BGM",
+    "code.event.201": "变动玩家",
+    "code.event.202": "设置载具位置",
+    "code.event.203": "设置事件位置",
+    "code.event.204": "滚动地图",
+    "code.event.205": "设置移动路线",
+    "code.event.505": "设置移动路线(空)",
+    "code.event.206": "上/下 载具",
+    "code.event.211": "更改透明度",
+    "code.event.212": "显示动画",
+    "code.event.213": "显示气泡图标",
+    "code.event.214": "消除事件",
+    "code.event.216": "更改玩家队伍",
+    "code.event.217": "集合队伍",
+    "code.event.221": "淡出屏幕",
+    "code.event.222": "淡入屏幕",
+    "code.event.223": "屏幕色调",
+    "code.event.224": "闪烁屏幕",
+    "code.event.225": "晃动屏幕",
+    "code.event.230": "等待",
+    "code.event.231": "显示图片",
+    "code.event.232": "移动图片",
+    "code.event.233": "旋转图片",
+    "code.event.234": "调色图片",
+    "code.event.235": "移除图片",
+    "code.event.236": "设置天气效果",
+    "code.event.241": "播放BGM",
+    "code.event.242": "淡出BGM",
+    "code.event.243": "保存BGM",
+    "code.event.244": "重播BGM",
+    "code.event.245": "播放BGS",
+    "code.event.246": "储存BGS",
+    "code.event.249": "播放ME",
+    "code.event.250": "播放SE",
+    "code.event.251": "关闭SE",
+    "code.event.261": "播放影片",
+    "code.event.281": "更改地图名称显示",
+    "code.event.282": "更改区块",
+    "code.event.283": "更改战斗背部",
+    "code.event.284": "改变视差",
+    "code.event.285": "获取位置信息",
+    "code.event.301": "战斗处理",
+    "code.event.601": "战斗处理(如果获胜)",
+    "code.event.602": "战斗处理(如果逃跑)",
+    "code.event.603": "战斗处理(如果失败)",
+    "code.event.302": "显示处理",
+    "code.event.303": "姓名输入处理",
+    "code.event.311": "更改HP",
+    "code.event.312": "更改MP",
+    "code.event.326": "更改TP",
+    "code.event.313": "更改状态",
+    "code.event.314": "全员恢复",
+    "code.event.315": "更改EXP",
+    "code.event.316": "更改等级",
+    "code.event.317": "更改参数",
+    "code.event.318": "更改技能",
+    "code.event.319": "更换装备",
+    "code.event.320": "更改名称",
+    "code.event.321": "更改等级",
+    "code.event.322": "更改角色形象",
+    "code.event.323": "更改载具图像",
+    "code.event.324": "更改昵称",
+    "code.event.325": "更改曲线图",
+    "code.event.331": "改变敌人HP",
+    "code.event.332": "改变敌人MP",
+    "code.event.342": "改变敌人TP",
+    "code.event.333": "改变敌对状态",
+    "code.event.334": "敌人恢复全部",
+    "code.event.335": "敌人出现了",
+    "code.event.336": "敌人改变",
+    "code.event.337": "显示战斗动画",
+    "code.event.339": "强制行动",
+    "code.event.340": "中止战斗",
+    "code.event.351": "打开菜单界面",
+    "code.event.352": "打开保存界面",
+    "code.event.353": "游戏结束",
+    "code.event.354": "返回标题屏幕",
+    "code.event.355": "脚本",
+    "code.event.655": "脚本(第二行及之后)",
+    "code.event.356": "“插件命令",
+ 
+    "file.help": "help_ch/index.html",
+    "file.logo": "src/images/logo_ch.png"
+}
+            </pre>
+        </details>
+    </div>
+
+    <!-- 评论区（和之前风格完全一致，新增回复功能） -->
+<body>
+    <div class="comment-container">
+        <h3>评论区</h3>
+        <textarea class="comment-input" placeholder="请输入评论..."></textarea>
+        <button class="comment-btn" id="submitBtn">提交评论</button>
+        <div class="comment-list" id="commentList"></div>
+    </div>
+
+    <script>
+        // 1. 配置屏蔽词（可自定义扩展）
+        const forbiddenWords = ['妈的', '吊毛', '妈', '滚'];
+        
+        // 2. 初始化：从本地存储加载评论（实现固定不消失）
+        function initComments() {
+            const savedComments = localStorage.getItem('comments');
+            if (savedComments) {
+                document.getElementById('commentList').innerHTML = savedComments;
+                // 为已加载的评论绑定复制事件
+                bindCopyEvent();
+            }
+        }
+
+        // 3. 屏蔽词过滤函数
+        function filterForbiddenWords(content) {
+            let filteredContent = content;
+            forbiddenWords.forEach(word => {
+                // 替换为等长度的*号
+                const replaceStr = '*'.repeat(word.length);
+                filteredContent = filteredContent.replace(new RegExp(word, 'gi'), replaceStr);
+            });
+            return filteredContent;
+        }
+
+        // 4. 提交评论逻辑
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            const input = document.querySelector('.comment-input');
+            const commentContent = input.value.trim();
+            
+            if (!commentContent) {
+                alert('评论内容不能为空！');
+                return;
+            }
+
+            // 过滤屏蔽词
+            const filteredContent = filterForbiddenWords(commentContent);
+
+            // 创建评论项
+            const commentItem = document.createElement('div');
+            commentItem.className = 'comment-item';
+            commentItem.innerHTML = `
+                <span>${filteredContent}</span>
+                <button class="copy-btn" data-content="${filteredContent}">一键复制</button>
+            `;
+
+            // 添加到评论列表
+            const commentList = document.getElementById('commentList');
+            commentList.appendChild(commentItem);
+
+            // 保存到本地存储（覆盖式保存，确保刷新后存在）
+            localStorage.setItem('comments', commentList.innerHTML);
+
+            // 清空输入框
+            input.value = '';
+
+            // 绑定复制事件
+            bindCopyEvent();
+        });
+
+        // 5. 一键复制功能绑定
+        function bindCopyEvent() {
+            const copyBtns = document.querySelectorAll('.copy-btn');
+            copyBtns.forEach(btn => {
+                // 防止重复绑定
+                btn.removeEventListener('click', copyHandler);
+                btn.addEventListener('click', copyHandler);
+            });
+        }
+
+        // 复制处理函数
+        function copyHandler() {
+            const content = this.getAttribute('data-content');
+            // 创建临时输入框实现复制
+            const tempInput = document.createElement('input');
+            tempInput.value = content;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            alert('复制成功！');
+        }
+
+        // 页面加载时初始化评论
+        window.onload = initComments;
+    </script>
+</body>
+
+    <!-- 版权 -->
+    <footer>
+        <p>© 2026 無心寒涵</p>
+    </footer>
+
+</body>
+</html>

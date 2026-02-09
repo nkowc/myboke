@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Visual Novel Maker-语言配置文件</title>
+    <link rel="stylesheet" href="forum-style.css">
+    <style>
+        /* 基础样式优化，不影响原有文字 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft Yahei", sans-serif;
+        }
+        body {
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .back-btn {
+            margin-bottom: 20px;
+            padding: 8px 16px;
+            cursor: pointer;
+        }
+        .intro, .detail {
+            margin-bottom: 20px;
+        }
+        .code-section {
+            margin: 20px 0;
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 4px;
+        }
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        /* 评论区样式 */
+        .comment-section {
+            margin-top: 30px;
+            max-width: 800px;
+        }
+        #comment-input, .reply-input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            resize: vertical;
+            min-height: 80px;
+        }
+        .reply-input {
+            min-height: 60px;
+            margin-left: 20px;
+            width: calc(100% - 20px);
+        }
+        .submit-btn, .reply-btn {
+            padding: 8px 16px;
+            background: #4285f4;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .reply-btn {
+            background: #0f9d58;
+            padding: 4px 8px;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+        .comments-list {
+            margin-top: 20px;
+        }
+        .comment {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #eee;
+            border-radius: 4px;
+        }
+        .reply {
+            margin: 10px 0 0 20px;
+            padding: 8px;
+            background: #f9f9f9;
+            border-radius: 4px;
+        }
+        .comment-meta {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        /* 页脚 */
+        footer {
+            margin-top: 48px;
+            text-align: center;
+            color: #999;
+            padding: 16px 0;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 返回按钮 -->
+    <button class="back-btn" onclick="history.back()">返回上一頁</button>
+
+    <!-- 简介 -->
+    <div class="intro">
+        <p>游戏系统默认为英文语言，此为变更成中文语言。</p>
+    </div>
+
+    <!-- 详细说明 -->
+    <div class="detail">
+        <p>
+            导入方式：请创建新语言，选中右键导入CSV，选中所在文件夹即可完成。
+            <br>百度网盘：<a href="https://pan.baidu.com/s/1lHBrd89HOJHrm7PrlmxAEQ">提取码1234</a>
+            <br>提取码：1234
+        </p>
+    </div>
+
+    <!-- 代码区域 -->
+    <div class="code-section">
+        <details>
+            <summary>查看语言配置CSV代码</summary>
+            <pre>
+UID;Default Text;Translation
+4FE8B0BD58FD914BFA8824E07226FB7F7974,New game, 新的游戏,
+5DC22AD29AE4C84F4979470215C2383A0620,Gallery,画廊,
+0B92E27C6AAE1648AF1B28B2E938923EDDD7,Load Game,读取进度,
+D77D7952535CB1422759B668DBFB3C4FD441,Settings,设置,
+377A3D6B2286414CAB8AAA93605A675D3AD6,Quit,退出,
+149D0E4B8AF8574E5A8BF574FD9A9590B69A,General,显示,
+6683560332F9274AEE1B5D96FCA020F57DDE,Message,播放,
+92FDB732611153400B595AD7D92206CDC592,Audio,声音,
+B0FD4BF121D9E44E7589CDD35869F86F2227,Back,返回,
+2BB9D02557CFE84BAE8B7401501783BA6FBF,Display Mode,显示方式,
+C5BB4D477FDFE54D2B5A0473BEC61239C219,Windowed,小窗,
+06C8957A5B6A0949DD28B96486586E93FCD4,Fullscreen,全屏,
+1C7C50BC434287404B392232B960C5701039,Screen Adjustment,屏幕调整,
+A583EEF38BB725426A6AB8965DCCDDED2982,Ratio,比例,
+4F0DB69F055E3742208BE803F70C506572A3,Confirmation,确认,
+DB87E66F8299B549E56B2F048040DA406BCC,On,是,
+2D23328A3B4F80462E7AB2F8CD3996B20665,Off,否,
+4D3EC62F007AF64B0C68E8081C003D041370,General Settings,常规设置,
+4272A0BC5880A64DA49AEBD4D60905347726,Reset Global Data,重置全局,
+B5E0981F6D6A9240653B23A0D09B3383048E,Message Settings,消息设置,
+179347604CAF0640628824725774FFBD07B6,Message Speed,消息速度,
+41A878A74A390447FB9AB956122AD13373D1,Slowest,慢,
+3D840F7D30D472419059F342ACF0C846B0ED,Slow,普通,
+12C3DA314B22614AC67890D37019784EDFA9,Normal,快,
+889AFB7C545AE8477889E11480BE6871ECA1,Fast,很快,
+DE5E3CF01CDA784C378B428533F4D6E03C96,Fastest,很快的,
+ED439B0C58174541F17B79280D5763C674AB,Auto-Message,自动播放,
+D073E5F78F4FF8423249BBC5E61064361B09,Auto-Message Duration,自动播放持续时间,
+4FE0B4B30E8789487D7B88D2839ECBCE5C70,1 Second,1秒,
+1C20A916753BC840952864867489B576DBD5,2 Seconds,2秒,
+FBF01A7B3C1BB2489F2B2D0581A257A102E6,3 Seconds,3秒,
+DE0D08A67E84B1476E4A1B604CB64E4BC942,4 Seconds,4秒,
+964CF20A55D2F3404B389B67AAF1CDA51656,5 Seconds,5秒,
+994D4B5C1BFA5445385B8AE32706997132F1,Wait for Voice,等待声,
+BF3E948519A9084E721AF585C8C7D51235A7,Stop on Click,停止点击,
+3538F7E582FC20467E7947F77FB45789115E,Time Message to Voice,显示时间,
+0B7D6CF76F833444EF39BBC8B590114C97A4,Skip,跳过,
+C138CE3C9564C54707492AA264690B5BBB90,Videos,录像,
+E4A4BA053854774F582852D558E4E5C23AC5,Voices,声音,
+469C50C92465724C9F48BD86BB799E781F3C,Unread,未读,
+F84B92944EA3354A49184BF155F42220FE9B,Choices,选择,
+9EDC6A1760DE464C3469A5B77772305ACB56,Audio Settings,音频设置,
+26260DB310D5D540721AF635B495750C03A5,Audio,声音,
+DBE389A484EE65464E583082C1A3A9410B6C,Music,音乐,
+64F490CD4547394ADA4B4D67693D24289F4B,Sound Effects,声音效果,
+4BA0665E3B4D05412D4B81373A88DB3543EB,Voice,声音,
+DD4C5C8987E8B7493A2B4139B342CA461DC9,Voices,声音,
+A80D12A37EE45448BD2A2695D7C86820AB03,Gallery,画廊,
+B215F6EB2576884547399CC0CF2F38E855FD,Load Game,读取游戏,
+17B8950C477FA042C418D7A591445017623C,Save Game,保存游戏,
+8E38A9D614390348151B45B694031841EED2,New File,存档,
+2BD08CC65B9A2248C749B9C4DEEAADE8E20A,Do you really want to load?,你确定这样吗？,
+FC0009F469943746CB8B56E9DB5D0167E780,Yes,是,
+9A0CF5736CCFD24B94787354C578BE488209,No,否,
+3A58B0DB84DB0549FD09EDF6F0FF0730D8DE,Skip,跳过,
+BF92F3296C66164227197FB3BF1E1B09E0D8,Log,日志,
+5316D6C90CB9924AE64A39889235D22D5FEE,Save,保存,
+9622E9805409534DB8381610238C95564F30,Load,加载,
+D2632CD54402D8462F597DD75E51050ED0C3,Title,标题,
+ABC85CC3669B83481309BDF44B98EF11B59B,Do you really want to exit?,你确认这样吗？,
+33B51B1130853144E4888263A53B022C4ADB,Stretch,扩展,
+92D58F0C1B58A94ADF791B81E9479CF2A27D,Do you really want to reset global data?,你确定这样吗？,
+A6EE5D6732DD454DDE988B569929C5F2DA62,Back to Title,返回标题,
+            </pre>
+        </details>
+    </div>
+
+    <!-- 评论区 -->
+<body>
+    <div class="comment-container">
+        <h3>评论区</h3>
+        <textarea class="comment-input" placeholder="请输入评论..."></textarea>
+        <button class="comment-btn" id="submitBtn">提交评论</button>
+        <div class="comment-list" id="commentList"></div>
+    </div>
+
+    <script>
+        // 1. 配置屏蔽词（可自定义扩展）
+        const forbiddenWords = ['妈的', '吊毛', '妈', '滚'];
+        
+        // 2. 初始化：从本地存储加载评论（实现固定不消失）
+        function initComments() {
+            const savedComments = localStorage.getItem('comments');
+            if (savedComments) {
+                document.getElementById('commentList').innerHTML = savedComments;
+                // 为已加载的评论绑定复制事件
+                bindCopyEvent();
+            }
+        }
+
+        // 3. 屏蔽词过滤函数
+        function filterForbiddenWords(content) {
+            let filteredContent = content;
+            forbiddenWords.forEach(word => {
+                // 替换为等长度的*号
+                const replaceStr = '*'.repeat(word.length);
+                filteredContent = filteredContent.replace(new RegExp(word, 'gi'), replaceStr);
+            });
+            return filteredContent;
+        }
+
+        // 4. 提交评论逻辑
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            const input = document.querySelector('.comment-input');
+            const commentContent = input.value.trim();
+            
+            if (!commentContent) {
+                alert('评论内容不能为空！');
+                return;
+            }
+
+            // 过滤屏蔽词
+            const filteredContent = filterForbiddenWords(commentContent);
+
+            // 创建评论项
+            const commentItem = document.createElement('div');
+            commentItem.className = 'comment-item';
+            commentItem.innerHTML = `
+                <span>${filteredContent}</span>
+                <button class="copy-btn" data-content="${filteredContent}">一键复制</button>
+            `;
+
+            // 添加到评论列表
+            const commentList = document.getElementById('commentList');
+            commentList.appendChild(commentItem);
+
+            // 保存到本地存储（覆盖式保存，确保刷新后存在）
+            localStorage.setItem('comments', commentList.innerHTML);
+
+            // 清空输入框
+            input.value = '';
+
+            // 绑定复制事件
+            bindCopyEvent();
+        });
+
+        // 5. 一键复制功能绑定
+        function bindCopyEvent() {
+            const copyBtns = document.querySelectorAll('.copy-btn');
+            copyBtns.forEach(btn => {
+                // 防止重复绑定
+                btn.removeEventListener('click', copyHandler);
+                btn.addEventListener('click', copyHandler);
+            });
+        }
+
+        // 复制处理函数
+        function copyHandler() {
+            const content = this.getAttribute('data-content');
+            // 创建临时输入框实现复制
+            const tempInput = document.createElement('input');
+            tempInput.value = content;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            alert('复制成功！');
+        }
+
+        // 页面加载时初始化评论
+        window.onload = initComments;
+    </script>
+</body>
+
+    <!-- 版权 -->
+    <footer>
+        <p>© 2026 無心寒涵</p>
+    </footer>
+
+</body>
+</html>

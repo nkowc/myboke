@@ -1,0 +1,271 @@
+/* 全局重置与基础样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "宋体", SimSun, "微软雅黑", Microsoft YaHei, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #E6E8EB; /* 经典论坛浅灰背景 */
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4d5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYl/f39ra2uRkZGZmZlpaWmXl5dvb29xcXGTk5NnZ2c4zIwLAAAAG3RSTlNAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEAvEOwtAAAFVklEQVR4XpWWB67c2BUFb3g557T/hRo9/WUMZHlgr4Bg8Z4qQgQJlHI4A8SzFVrapvmTF9O7dmYRFZ60YiBhJRCgh1FYhiLAmdvX0CzTOpNE77ME0Zty/nWWzchDtiqrmQDeuv3powQ5ta2eN0FY0InkqDD73lT9c9lEzwUNqgFHs9VQce3TVClFCQrSTfOiYkVJQBmpbq2L6iZavPnAPcoU0dSw0SUTqz/GtrGuXfbyyBniKykOWQWGqwwMA7QiYAxi+IlPdqo+hYHnUt5ZPfnsHJyNiDtnpJyayNBkF6cWoYGAMY92U2hXHF/C1M8uP/ZtYdiuj26UdAdQQSXQErwSOMzt/XWRWAz5GuSBIkwG1H3FabJ2OsUOUhGC6tK4EMtJO0ttC6IBD3kM0ve0tJwMdSfjZo+EEISaeTr9P3wYrGjXqyC1krcKdhMpxEnt5JetoulscpyzhXN5FRpuPHvbeQaKxFAEB6EN+cYN6xD7RYGpXpNndMmZgM5Dcs3YSNFDHUo2LGfZuukSWyUYirJAdYbF3MfqEKmjM+I2EfhA94iG3L7uKrR+GdWD73ydlIB+6hgref1QTlmgmbM3/LeX5GI1Ux1RWpgxpLuZ2+I+IjzZ8wqE4nilvQdkUdfhzI5QDWy+kw5Wgg2pGpeEVeCCA7b85BO3F9DzxB3cdqvBzWcmzbyMiqhzuYqtHRVG2y4x+KOlnyqla8AoWWpuBoYRxzXrfKuILl6SfiWCbjxoZJUaCBj1CjH7GIaDbc9kqBY3W/Rgjda1iqQcOJu2WW+76pZC9QG7M00dffe9hNnseupFL53r8F7YHSwJWUKP2q+k7RdsxyOB11n0xtOvnW4irMMFNV4H0uqwS5ExsmP9AxbDTc9JwgneAT5vTiUSm1E7BSflSt3bfa1tv8Di3R8n3Af7MNWzs49hmauE2wP+ttrq+AsWpFG2awvsuOqbipWHgtuvuaAE+A1Z/7gC9hesnr+7wqCwG8c5yAg3AL1fm8T9AZtp/bbJGwl1pNrE7RuOX7PeMRUERVaPpEs+yqeoSmuOlokqw49pgomjLeh7icHNlG19yjs6XXOMedYm5xH2YxpV2tc0Ro2jJfxC50ApuxGob7lMsxfTbeUv07TyYxpeLucEH1gNd4IKH2LAg5TdVhlCafZvpskfncCfx8pOhJzd76bJWeYFnFciwcYfubRc12Ip/ppIhA1/mSZ/RxjFDrJC5xifFjJpY2Xl5zXdguFqYyTR1zSp1Y9p+tktDYYSNflcxI0iyO4TPBdlRcpeqjK/piF5bklq77VSEaA+z8qmJTFzIWiitbnzR794USKBUaT0NTEsVjZqLaFVqJoPN9ODG70IPbfBHKK+/q/AWR0tJzYHRULOa4MP+W/HfGadZUbfw177G7j/OGbIs8TahLyynl4X4RinF793Oz+BU0saXtUHrVBFT/DnA3ctNPoGbs4hRIjTok8i+algT1lTHi4SxFvONKNrgQFAq2/gFnWMXgwffgYMJpiKYkmW3tTg3ZQ9Jq+f8XN+A5eeUKHWvJWJ2sgJ1Sop+wwhqFVijqWaJhwtD8MNlSBeWNNWTa5ZkKw5Z8f0hXOoVumWWVQ(VQ==); /* 复古纹理背景 */
+  padding: 0;
+  margin: 0;
+}
+
+/* 容器 - 模拟论坛居中布局 */
+.forum-container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 15px auto;
+  background-color: #fff;
+  border: 1px solid #B7C5D3; /* 经典浅蓝灰边框 */
+  box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+}
+
+/* 论坛头部 */
+.forum-header {
+  background: linear-gradient(to bottom, #4A77AA 0%, #3A6699 100%); /* 经典蓝渐变 */
+  padding: 12px 15px;
+  border-bottom: 1px solid #2C5588;
+}
+
+.forum-header h1 {
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  text-shadow: 1px 1px 0 #2C5588;
+}
+
+/* 导航栏 */
+.forum-nav {
+  background-color: #F5F7F9;
+  border-bottom: 1px solid #B7C5D3;
+  padding: 8px 15px;
+}
+
+.forum-nav a {
+  color: #2C5588;
+  text-decoration: none;
+  margin-right: 15px;
+  font-weight: 500;
+}
+
+.forum-nav a:hover {
+  color: #D86400;
+  text-decoration: underline;
+}
+
+/* 板块列表 */
+.forum-board {
+  padding: 10px;
+}
+
+.board-item {
+  border: 1px solid #B7C5D3;
+  margin-bottom: 8px;
+  background-color: #F9FBFD;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.board-icon {
+  width: 40px;
+  height: 40px;
+  background-color: #4A77AA;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 20px;
+  margin-right: 15px;
+}
+
+.board-info {
+  flex: 1;
+}
+
+.board-title {
+  font-size: 15px;
+  font-weight: bold;
+  color: #2C5588;
+  margin-bottom: 3px;
+}
+
+.board-desc {
+  font-size: 12px;
+  color: #666;
+}
+
+.board-stats {
+  text-align: right;
+  font-size: 12px;
+  color: #666;
+  width: 120px;
+}
+
+/* 帖子列表 */
+.post-list {
+  padding: 10px;
+  border-top: 1px dashed #B7C5D3;
+}
+
+.post-item {
+  padding: 8px 0;
+  border-bottom: 1px dotted #E0E6ED;
+  display: flex;
+  align-items: center;
+}
+
+.post-author {
+  width: 80px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.post-author-avatar {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #B7C5D3;
+  background-color: #F5F7F9;
+  margin: 0 auto 5px;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.post-author-name {
+  color: #2C5588;
+  font-weight: bold;
+}
+
+.post-content {
+  flex: 1;
+}
+
+.post-title {
+  font-size: 14px;
+  color: #D86400; /* 经典橙色标题 */
+  text-decoration: none;
+}
+
+.post-title:hover {
+  text-decoration: underline;
+}
+
+.post-meta {
+  font-size: 11px;
+  color: #999;
+  margin-top: 3px;
+}
+
+.post-stats {
+  width: 100px;
+  text-align: right;
+  font-size: 12px;
+  color: #666;
+}
+
+/* 按钮样式 - 复古渐变按钮 */
+.btn {
+  display: inline-block;
+  padding: 4px 10px;
+  background: linear-gradient(to bottom, #F5F7F9 0%, #E0E6ED 100%);
+  border: 1px solid #B7C5D3;
+  border-radius: 3px;
+  color: #333;
+  text-decoration: none;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: linear-gradient(to bottom, #E0E6ED 0%, #D0D9E3 100%);
+  border-color: #99A8B5;
+}
+
+.btn-primary {
+  background: linear-gradient(to bottom, #4A77AA 0%, #3A6699 100%);
+  color: #fff;
+  border-color: #2C5588;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(to bottom, #3A6699 0%, #2C5588 100%);
+}
+
+/* 分页 */
+.pagination {
+  padding: 10px 15px;
+  text-align: center;
+}
+
+.pagination a {
+  display: inline-block;
+  padding: 3px 8px;
+  margin: 0 2px;
+  border: 1px solid #B7C5D3;
+  background-color: #F5F7F9;
+  color: #2C5588;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.pagination a.active {
+  background-color: #4A77AA;
+  color: #fff;
+  border-color: #2C5588;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #E0E6ED;
+}
+
+/* 页脚 */
+.forum-footer {
+  background-color: #F5F7F9;
+  border-top: 1px solid #B7C5D3;
+  padding: 15px;
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+  margin-top: 10px;
+}
+
+/* 响应式适配 */
+@media (max-width: 768px) {
+  .forum-container {
+    width: 98%;
+  }
+  
+  .board-item, .post-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .board-icon {
+    margin-bottom: 10px;
+  }
+  
+  .board-stats, .post-stats {
+    width: 100%;
+    text-align: left;
+    margin-top: 5px;
+  }
+  
+  .post-author {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .post-author-avatar {
+    margin: 0 10px 0 0;
+  }
+}
