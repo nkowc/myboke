@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>漆島アヤカ</title>
+    <link rel="stylesheet" href="forum-style.css">
+    <style>
+        /* 基础样式重置与统一 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-size: 16px; /* 默认字体大小 */
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .large {
+            font-size: 1.5em; /* 相对于父元素放大1.5倍 */
+        }
+
+        .small {
+            font-size: smaller; /* 相对缩小 */
+        }
+
+        /* 页脚 */
+        footer {
+            margin-top: 48px;
+            text-align: center;
+            color: #999;
+            padding: 16px 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        #follow-div {
+            position: fixed;
+            top: 50px;
+            left: 50px;
+            width: 200px;
+            height: 200px;
+            background-color: rgb(255, 255, 255);
+        }
+
+        .center-img {
+            display: flex;
+            justify-content: center; /* 水平居中 */
+            align-items: center; /* 垂直居中 */
+            height: 300px; /* 父容器高度 */
+            border: 1px solid #ccc;
+        }
+
+        .resize-img {
+            width: 50%; /* 设置为父元素宽度的 50% */
+            height: auto; /* 自动调整高度以保持比例 */
+        }
+
+        p {
+            white-space: nowrap; /* 强制不换行 */
+            word-break: break-all; /* 强制断行 */
+        }
+
+        /* 定义闪烁动画 */
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* 应用动画到类 */
+        .blink {
+            font-size: 24px;
+            color: red;
+            animation: blink 1s infinite;
+        }
+
+        /* 返回按钮样式 */
+        .back-btn {
+            padding: 8px 16px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        /* 下载区域样式 - 解决第115行文字大小同步+同列问题 */
+        .download-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 10px 0;
+        }
+
+        .download-area p {
+            font-size: 16px; /* 统一文字大小 */
+            white-space: normal; /* 恢复正常换行，保证排版 */
+        }
+
+        .download-area .small {
+            font-size: smaller; /* 保留small样式但保证同列 */
+            margin-left: 5px;
+        }
+
+        .download-btn {
+            padding: 8px 16px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        /* 醒目化使用条例样式 */
+        .code-section {
+            margin: 30px 0;
+        }
+
+        .usage-rules {
+            border: 2px solid #e74c3c; /* 红色边框醒目 */
+            border-radius: 8px;
+            padding: 20px;
+            background-color: #fdf2e9; /* 浅红背景增强视觉 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 阴影提升层次感 */
+        }
+
+        .usage-rules summary {
+            font-size: 18px;
+            font-weight: bold;
+            color: #c0392b; /* 深红字 */
+            cursor: pointer;
+            padding: 10px;
+            background-color: #f8e1dd;
+            border-radius: 4px;
+        }
+
+        .usage-rules pre {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 15px;
+            line-height: 1.8;
+            white-space: pre-wrap; /* 允许换行 */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 返回按钮 -->
+    <button class="back-btn" onclick="history.back()">返回上一頁</button>
+
+    <div style="text-align: center;">
+        <img src="./image/1.output.png" alt="缩小的图片">
+    </div>
+
+    <p>性別：男女皆可
+        <br>年齡：？？？
+        <br>性格：溫柔
+        <br>生辰：2023-02-14
+    </p>
+
+<!-- 使用条例 -->
+    <div class="code-section">
+        <details>
+            <summary>使用條例</summary>
+            <pre>
+<p style="color: green;"><b>允许</b></p>
+修改oto文件，降噪音頻。
+允許商業化內容，請事先告知我確認。
+允許同人創作，R18相關內容。
+<hr>
+<p style="color: red;"><b>禁止</b></p>
+禁止複製文件內的任何內容去當做自己或其他行為。
+禁止大改角色的形象，針對於完全認不出或角色該有的東西的情況。
+禁止使用或訓練到AI等相關內容。
+禁止侵犯他人利益。
+在已知原創作者禁止翻唱等相關行為時，使用該角色或聲音。
+禁止二次發佈！
+<hr>
+<p style="color: yellowgreen;"><b>其他</b></p>
+條約隨時會更改，不管如何都默認你已知此內容。
+對於沒有說明的內容，可以聯繫我確認。
+</pre>
+</details>
+
+    <h2>下载</h2>
+
+    <!-- 下载区域 - 解决文字大小同步+同列问题 -->
+    <div class="download-area">
+        <p>這是一款首次發佈的日語音源，不建議使用。</p>
+    </div>
+    <p class="small">配布时间：2023-02-14</p>
+    <a href="https://bowlroll.net/file/294409" download="example.pdf">
+        <button class="download-btn">下载文件</button>
+    </a>
+     <div class="download-area">
+        <p><span class="blink">[New]</span>Rock Sugar是一款偏甜的日語音源。</p>
+    </div>
+    <p class="small">配布时间：2024-01-19</p>
+    <a href="https://bowlroll.net/file/312569" download="example.pdf">
+        <button class="download-btn">下载文件</button>
+    </a>
+    <!-- 版权 -->
+    <footer>
+        <p>© 2026 無心寒涵</p>
+    </footer>
+</body>
+</html>
