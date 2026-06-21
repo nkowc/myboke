@@ -1,154 +1,471 @@
 <!DOCTYPE html>
-<html lang="cn">
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="common.css">
     <title>RPG Maker MV Tools - Database ConVerter MV-中文翻译</title>
-    <link rel="stylesheet" href="forum-style.css">
     <style>
-        /* 基础样式重置与统一，不修改原有文字 */
+        /* ===== 复古风格 (与主页同步) ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Microsoft Yahei", sans-serif;
         }
+
         body {
-            padding: 20px;
-            line-height: 1.6;
+            background: #e8e0d0;
+            font-family: "Verdana", "Arial", "Helvetica", sans-serif;
+            font-size: 14px;
+            color: #000000;
+            padding: 10px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23e8e0d0'/%3E%3Cpath d='M10 10 L90 10 L90 90 L10 90 Z' fill='none' stroke='%23d5cdb8' stroke-width='1' stroke-dasharray='2 2'/%3E%3C/svg%3E");
         }
-        /* 返回按钮样式 */
-        .back-btn {
-            margin-bottom: 20px;
-            padding: 8px 16px;
-            cursor: pointer;
+
+        .main-table {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 3px solid #000080;
+            border-collapse: collapse;
+            box-shadow: 8px 8px 0px #888888;
         }
-        /* 简介、详细说明样式 */
-        .intro, .detail {
-            margin-bottom: 20px;
+
+        .main-table td {
+            padding: 6px;
+            vertical-align: top;
+            border: 1px solid #000080;
         }
-        /* logo图片样式 */
+
+        .banner {
+            background: #000080;
+            color: #ffffff;
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+            padding: 16px 10px;
+            letter-spacing: 4px;
+            font-family: "Times New Roman", serif;
+            text-shadow: 2px 2px 0px #000000;
+            border-bottom: 4px solid #ffcc00;
+        }
+        .banner small {
+            font-size: 16px;
+            color: #ffcc00;
+            display: block;
+            letter-spacing: 2px;
+        }
+
+        .nav-bar {
+            background: #c0c0c0;
+            padding: 6px 12px;
+            font-size: 15px;
+            font-weight: bold;
+            color: #000080;
+            border-bottom: 2px solid #808080;
+        }
+        .nav-bar a {
+            color: #000080;
+            text-decoration: none;
+            padding: 0 10px;
+            border-right: 1px solid #808080;
+        }
+        .nav-bar a:last-child {
+            border-right: none;
+        }
+        .nav-bar a:hover {
+            background: #ffcc00;
+            color: #000000;
+        }
+
+        .sidebar {
+            width: 200px;
+            background: #f0f0e8;
+            text-align: center;
+            padding: 12px 6px;
+            border-right: 2px solid #000080;
+        }
+        .sidebar h2 {
+            font-size: 18px;
+            color: #800000;
+            font-family: "Times New Roman", serif;
+            border-bottom: 2px dotted #800000;
+            padding-bottom: 4px;
+            margin-bottom: 10px;
+        }
+        .sidebar ul {
+            list-style-type: square;
+            text-align: left;
+            margin-left: 20px;
+            font-size: 13px;
+        }
+        .sidebar ul li {
+            padding: 4px 0;
+        }
+        .sidebar ul li a {
+            color: #0000ff;
+            text-decoration: underline;
+        }
+        .sidebar ul li a:hover {
+            color: #ff0000;
+            background: #ffff00;
+        }
+
+        .content {
+            background: #ffffff;
+            padding: 12px 16px;
+        }
+
+        .content .back-link {
+            display: block;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+        .content .back-link a {
+            color: #0000ff;
+            text-decoration: underline;
+        }
+        .content .back-link a:hover {
+            color: #ff0000;
+            background: #ffff00;
+        }
+
         .logo-img {
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             max-width: 100%;
             height: auto;
+            border: 2px solid #000080;
         }
-        /* 代码区域样式 */
+
+        .section-box {
+            border: 2px solid #000080;
+            background: #f0f8ff;
+            margin-bottom: 16px;
+        }
+        .section-box .header {
+            background: #000080;
+            color: #ffffff;
+            font-weight: bold;
+            padding: 4px 12px;
+            font-size: 16px;
+            letter-spacing: 2px;
+            font-family: "Times New Roman", serif;
+        }
+        .section-box .body {
+            padding: 8px 12px;
+        }
+        .section-box .body p {
+            margin-bottom: 6px;
+        }
+        .section-box .body a {
+            color: #0000ff;
+            text-decoration: underline;
+        }
+        .section-box .body a:hover {
+            color: #ff0000;
+            background: #ffff00;
+        }
+
+        .update-history {
+            border: 2px solid #008000;
+            background: #f5fff5;
+            margin-bottom: 16px;
+        }
+        .update-history .header {
+            background: #008000;
+            color: #ffffff;
+            font-weight: bold;
+            padding: 4px 12px;
+            font-size: 16px;
+            letter-spacing: 2px;
+            font-family: "Times New Roman", serif;
+        }
+        .update-history .body {
+            padding: 8px 12px;
+            font-size: 13px;
+        }
+
         .code-section {
-            margin: 20px 0;
-            padding: 10px;
+            border: 2px solid #808080;
             background: #f5f5f5;
-            border-radius: 4px;
+            margin-bottom: 16px;
         }
-        pre {
+        .code-section .header {
+            background: #c0c0c0;
+            color: #000000;
+            font-weight: bold;
+            padding: 4px 12px;
+            font-size: 16px;
+            letter-spacing: 2px;
+            font-family: "Times New Roman", serif;
+            border-bottom: 1px solid #808080;
+            cursor: pointer;
+        }
+        .code-section .body {
+            padding: 8px 12px;
+            background: #2b2b2b;
+        }
+        .code-section .body pre {
             white-space: pre-wrap;
             word-wrap: break-word;
             padding: 10px;
-            background: #fff;
-            border-radius: 4px;
-            border: 1px solid #eee;
+            background: #1e1e1e;
+            border: 2px inset #808080;
+            color: #d4d4d4;
+            font-family: "Courier New", monospace;
+            font-size: 12px;
+            max-height: 400px;
+            overflow-y: auto;
         }
-        /* 更新历史样式 */
-        .update-history {
-            margin-bottom: 20px;
-            padding: 10px;
-            background: #f9f9f9;
-            border-radius: 4px;
-        }
-        /* 评论区样式（和之前保持一致） */
+
         .comment-section {
-            margin-top: 30px;
-            max-width: 800px;
+            border: 2px solid #000080;
+            background: #f0f0e8;
+            margin-top: 16px;
         }
-        #comment-input, .reply-input {
+        .comment-section .header {
+            background: #000080;
+            color: #ffffff;
+            font-weight: bold;
+            padding: 4px 12px;
+            font-size: 16px;
+            letter-spacing: 2px;
+            font-family: "Times New Roman", serif;
+        }
+        .comment-section .body {
+            padding: 12px;
+        }
+        .comment-section .body textarea {
             width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            padding: 6px;
+            border: 2px inset #808080;
+            background: #ffffff;
+            font-family: "Verdana", sans-serif;
+            font-size: 13px;
             resize: vertical;
             min-height: 80px;
         }
-        .reply-input {
-            min-height: 60px;
-            margin-left: 20px;
-            width: calc(100% - 20px);
-        }
-        .submit-btn, .reply-btn {
-            padding: 8px 16px;
-            background: #4285f4;
-            color: white;
-            border: none;
-            border-radius: 4px;
+        .comment-section .body .comment-btn {
+            background: #000080;
+            color: #ffffff;
+            border: 2px solid #ffcc00;
+            padding: 4px 16px;
+            font-weight: bold;
             cursor: pointer;
+            margin-top: 6px;
+            font-family: "Verdana", sans-serif;
         }
-        .reply-btn {
-            background: #0f9d58;
-            padding: 4px 8px;
-            font-size: 12px;
-            margin-left: 10px;
-        }
-        .comments-list {
-            margin-top: 20px;
-        }
-        .comment {
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #eee;
-            border-radius: 4px;
-        }
-        .reply {
-            margin: 10px 0 0 20px;
-            padding: 8px;
-            background: #f9f9f9;
-            border-radius: 4px;
-        }
-        .comment-meta {
-            font-size: 12px;
-            color: #666;
-            margin-bottom: 5px;
-        }
-        /* 页脚 */
-        footer {
-            margin-top: 48px;
-            text-align: center;
-            color: #999;
-            padding: 16px 0;
+        .comment-section .body .comment-btn:hover {
+            background: #ffcc00;
+            color: #000000;
         }
 
+        .comment-item {
+            border: 1px solid #808080;
+            background: #ffffff;
+            padding: 6px 10px;
+            margin-top: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .comment-item span {
+            font-size: 13px;
+            word-break: break-all;
+        }
+        .comment-item .copy-btn {
+            background: #c0c0c0;
+            border: 1px solid #000000;
+            padding: 2px 8px;
+            cursor: pointer;
+            font-size: 12px;
+            font-family: "Verdana", sans-serif;
+        }
+        .comment-item .copy-btn:hover {
+            background: #ffff00;
+        }
+
+        .footer {
+            background: #000080;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+            border-top: 4px solid #ffcc00;
+            font-family: "Times New Roman", serif;
+        }
+        .footer a {
+            color: #ffcc00;
+            text-decoration: underline;
+        }
+
+        @media screen and (max-width: 700px) {
+            .sidebar {
+                width: 100%;
+                display: block;
+                border-right: none;
+                border-bottom: 2px solid #000080;
+            }
+            .main-table td {
+                display: block;
+                width: 100%;
+            }
+            .banner {
+                font-size: 20px;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- 返回按钮 -->
-    <button class="back-btn" onclick="history.back()">返回上一頁</button>
 
-    <!-- Logo图片 -->
-    <img src="./image/logo_ch.png" alt="数据库转换器MV" class="logo-img">
+<table class="main-table" cellpadding="0" cellspacing="0">
+    <!-- 顶部横幅 -->
+    <tr>
+        <td colspan="2" class="banner">
+            ✦ 無心寒涵 · 工具库 ✦
+            <small>—— 数据库转换器 MV 中文版 ——</small>
+        </td>
+    </tr>
+    <!-- 导航栏 -->
+    <tr>
+        <td colspan="2" class="nav-bar">
+            <span style="float:right;color:#000080;">▼ 【已关闭】RPG Maker MV Tools - Database ConVerter MV-中文</span>
+        </td>
+    </tr>
+    <!-- 主体 -->
+    <tr>
+        <!-- 侧边栏 -->
+         <td class="sidebar" style="width:220px;">
+            <hr style="border:1px dashed #000080; margin:12px 0;" />
+            <div style="font-size:13px; color:#333;">
+                <span style="font-weight:bold;">更新日期</span><br />
+                <span style="background:#000; color:#0f0; padding:2px 10px; font-family:Courier; font-weight:bold;">2020.03.06</span>
+            </div>
+            <hr style="border:1px dashed #000080; margin:12px 0;" />
+            <div style="font-size:12px; color:#555;">
+                <span style="animation: blink 1s step-start infinite;">★</span> 版本: V1.1
+            </div>
+        </td>
+        </td>
+        <!-- 内容区域 -->
+        <td class="content">
 
-    <!-- 简介 -->
-    <div class="intro">
-        <p>参照部分官方中文机翻，部分翻译的时候发现有些词是多意，所以选取了比较符合的翻译，覆盖原语言。</p>
-    </div>
+            <!-- 返回链接 -->
+            <div class="back-link">
+                <a href="javascript:history.back()">&lt;&lt; 返回上一页</a>
+            </div>
 
-    <!-- 详细说明 -->
-    <div class="detail">
-        <p>
-            此软件具体作用：<a href="https://rpg.blue/thread-488799-1-1.html">【附机翻】将数据库转换为Excel或CSV格式的免费软件</a>
-        </p>
-    </div>
+            <!-- Logo -->
+            <img src="./image/logo_ch.png" alt="数据库转换器MV" class="logo-img" />
 
-    <!-- 更新历史 -->
-    <div class="update-history">
-        2022年03月06日 首次提交
-        <br>2022年03月06日 修改错误翻译
-        <br>2026年03月06日 由于用户协议已关闭分享
-    </div>
+            <!-- 简介 -->
+            <div class="section-box" id="intro">
+                <div class="header">简介</div>
+                <div class="body">
+                    <p>参照部分官方中文机翻，部分翻译的时候发现有些词是多意，所以选取了比较符合的翻译，覆盖原语言。</p>
+                </div>
+            </div>
 
-    <!-- 版权 -->
-    <footer>
-        <p>© 2026 無心寒涵</p>
-    </footer>
+            <!-- 更新历史 -->
+            <div class="update-history" id="update">
+                <div class="header">🕒 更新历史</div>
+                <div class="body">
+                    2022年03月06日 首次提交<br />
+                    2022年03月06日 修改错误翻译<br />
+                    2026年03月06日 由于用户协议已关闭分享
+                </div>
+            </div>
+
+        </td>
+    </tr>
+    <!-- 页脚 -->
+    <tr>
+        <td colspan="2" class="footer">
+            © 2026 無心寒涵 &nbsp;·</span> &nbsp;·&nbsp; 
+            <a href="./关于本站.html">关于本站</a> &nbsp;
+            <br />
+        </td>
+    </tr>
+</table>
+
+<script>
+    // ===== 代码折叠 =====
+    function toggleCode() {
+        var body = document.getElementById('codeBody');
+        if (body.style.display === 'none') {
+            body.style.display = 'block';
+        } else {
+            body.style.display = 'none';
+        }
+    }
+
+    // ===== 评论区功能 =====
+    const forbiddenWords = ['妈的', '吊毛', '妈', '滚'];
+
+    function initComments() {
+        const savedComments = localStorage.getItem('comments_tool');
+        if (savedComments) {
+            document.getElementById('commentList').innerHTML = savedComments;
+            bindCopyEvent();
+        }
+    }
+
+    function filterForbiddenWords(content) {
+        let filteredContent = content;
+        forbiddenWords.forEach(word => {
+            const replaceStr = '*'.repeat(word.length);
+            filteredContent = filteredContent.replace(new RegExp(word, 'gi'), replaceStr);
+        });
+        return filteredContent;
+    }
+
+    document.getElementById('submitBtn').addEventListener('click', function() {
+        const input = document.querySelector('.comment-input');
+        const commentContent = input.value.trim();
+
+        if (!commentContent) {
+            alert('评论内容不能为空！');
+            return;
+        }
+
+        const filteredContent = filterForbiddenWords(commentContent);
+
+        const commentItem = document.createElement('div');
+        commentItem.className = 'comment-item';
+        commentItem.innerHTML = `
+            <span>${filteredContent}</span>
+            <button class="copy-btn" data-content="${filteredContent}">一键复制</button>
+        `;
+
+        const commentList = document.getElementById('commentList');
+        commentList.appendChild(commentItem);
+        localStorage.setItem('comments_tool', commentList.innerHTML);
+        input.value = '';
+        bindCopyEvent();
+    });
+
+    function bindCopyEvent() {
+        const copyBtns = document.querySelectorAll('.copy-btn');
+        copyBtns.forEach(btn => {
+            btn.removeEventListener('click', copyHandler);
+            btn.addEventListener('click', copyHandler);
+        });
+    }
+
+    function copyHandler() {
+        const content = this.getAttribute('data-content');
+        const tempInput = document.createElement('input');
+        tempInput.value = content;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+        alert('复制成功！');
+    }
+
+    window.onload = initComments;
+</script>
 
 </body>
-
 </html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>關於本站 · 無心寒涵</title>
+    <!-- 引入公共样式（全站统一布局 + 手机适配） -->
+    <link rel="stylesheet" href="common.css" />
+    <style>
+        /* 页面特有的微调（保持与公共样式一致） */
+        .about-text {
+            font-size: 14px;
+            line-height: 2;
+            color: #333;
+        }
+        .about-text strong {
+            color: #800000;
+        }
+        .contact-info {
+            background: #f0f0e8;
+            border: 1px dashed #000080;
+            padding: 10px 14px;
+            margin: 8px 0;
+            font-size: 14px;
+        }
+        .contact-info a {
+            color: #0000ff;
+            text-decoration: underline;
+        }
+        .contact-info a:hover {
+            color: #ff0000;
+            background: #ffff00;
+        }
+        .site-history {
+            font-size: 13px;
+            color: #555;
+            margin-top: 6px;
+        }
+        .site-history span {
+            color: #000080;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<table class="main-table" cellpadding="0" cellspacing="0">
+    <!-- 顶部横幅 -->
+    <tr>
+        <td colspan="2" class="banner">
+            ✦ 無心寒涵 · 關於本站 ✦
+            <small>—— 个人博客 ——</small>
+        </td>
+    </tr>
+    <!-- 导航栏 -->
+    <tr>
+        <td colspan="2" class="nav-bar">
+            <span class="float-right">▼ 站點介紹</span>
+        </td>
+    </tr>
+    <!-- 主体 -->
+    <tr>
+        <!-- 侧边栏 -->
+        <td class="sidebar" style="width:220px;">
+            <div style="font-size:12px; color:#555;">
+                <span class="blink">★</span> 建站: 2026-??-??
+            </div>
+        </td>
+        <!-- 内容区域 -->
+        <td class="content">
+
+            <!-- ===== 返回链接 ===== -->
+            <div class="back-link">
+                <a href="javascript:history.back()">&lt;&lt; 返回上一頁</a>
+            </div>
+
+            <!-- ===== 本站簡介 ===== -->
+            <div class="section-box" id="intro">
+                <div class="header">本站簡介</div>
+                <div class="body">
+                    <p class="about-text">
+                        此站為 <strong>無心寒涵</strong> 的個人博客，主要用於分享以下內容：
+                    </p>
+                    <ul style="margin:8px 0 4px 24px; font-size:14px; line-height:1.8; color:#333;">
+                        <li>UTAU / 音源 配布</li>
+                        <li>📝 機器翻譯與筆記</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ===== 聯繫方式 ===== -->
+            <div class="section-box" id="contact">
+                <div class="header">✉ 聯繫方式</div>
+                <div class="body">
+                    <div class="contact-info">
+                        <strong>電子郵件：</strong>
+                        <a href="mailto:wuxinhanhan@gmail.com">wuxinhanhan@gmail.com</a>
+                        <br />
+                        <strong>🌐 其他平台：</strong> 暫未開放
+                    </div>
+                    <p style="font-size:13px; color:#666; margin-top:4px;">
+                        如有任何問題請來信。由於個人時間有限，回覆可能較慢。
+                    </p>
+                </div>
+            </div>
+            <!-- ===== 建站歷史 ===== -->
+            <div class="section-box" id="history">
+                <div class="header">建站歷史</div>
+                <div class="body">
+                    <div class="site-history">
+                        <span>2026-0x-xx</span> — 本站正式成立，首篇翻譯文章發布。<br />
+                        <span>2026-06-22</span> — 全站改版，統一復古風格並優化手機瀏覽。
+                    </div>
+                    <p style="font-size:13px; color:#888; margin-top:6px;">
+                        * 歷史記錄可能不全，僅列出主要節點。
+                    </p>
+                </div>
+            </div>
+
+            <!-- ===== 重要聲明 ===== -->
+            <div class="rules-box" id="notice">
+                <div class="header" onclick="toggleNotice()">⚠️ 重要聲明 (點擊展開/收起)</div>
+                <div class="body" id="noticeBody" style="display:block;">
+                    <pre>
+<span style="font-weight:bold; color:#c0392b;">▸ 關於已發布的內容</span>
+對於已發布的東西，會根據部分要求或個人原因關閉，
+未來的可能我們會刪除此網站。
+
+<span style="font-weight:bold; color:#c0392b;">▸ 外部鏈接</span>
+本站部分內容包含指向第三方網站的鏈接，僅供參考。
+我們對第三方網站的內容及安全性不承擔任何責任。
+                    </pre>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <!-- 页脚 -->
+    <tr>
+        <td colspan="2" class="footer">
+            © 2026 無心寒涵 &nbsp;·</span> &nbsp;·&nbsp; 
+            <a href="./关于本站.html">关于本站</a> &nbsp;
+            <br />
+        </td>
+    </tr>
+</table>
+
+<script>
+    // ===== 重要聲明折疊 =====
+    function toggleNotice() {
+        var body = document.getElementById('noticeBody');
+        if (body.style.display === 'none') {
+            body.style.display = 'block';
+        } else {
+            body.style.display = 'none';
+        }
+    }
+</script>
+
+</body>
+</html>

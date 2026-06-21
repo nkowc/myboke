@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="cn">
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MY 博客</title>
-    <link rel="stylesheet" href="forum-style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="common.css">
+    <title>無心寒涵 · 旧版博客</title>
     <style>
-        /* 基础重置 */
+        /* ===== 复古风格 ===== */
+        /* 全局重置，使用表格布局，所以不需要浮动等 */
         * {
             margin: 0;
             padding: 0;
@@ -14,441 +15,428 @@
         }
 
         body {
-            font-family: "Microsoft Yahei", sans-serif;
-            line-height: 1.6;
-            padding: 20px;
-            font-size: 16px; /* 统一字体大小定义位置 */
-            position: relative; /* 为左侧栏绝对定位做基准 */
-            max-width: 1200px; /* 主内容居中控制 */
-            margin: 0 auto; /* 整体内容水平居中 */
-            padding-left: 240px; /* 为左侧栏预留空间 */
-            padding-top: 80px; /* 为顶部导航预留空间 */
+            background: #e8e0d0;  /* 旧式米黄背景 */
+            font-family: "Verdana", "Arial", "Helvetica", sans-serif;
+            font-size: 14px;
+            color: #000000;
+            padding: 10px;
+            /* 背景纹理（模仿老旧纸张） */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23e8e0d0'/%3E%3Cpath d='M10 10 L90 10 L90 90 L10 90 Z' fill='none' stroke='%23d5cdb8' stroke-width='1' stroke-dasharray='2 2'/%3E%3C/svg%3E");
         }
 
-        /* 顶部导航 */
-        nav {
-            position: fixed; /* 固定定位 */
-            top: 0; /* 距离顶部0 */
-            left: 0;
-            width: 100%; /* 占满宽度 */
-            background-color: #333;
-            color: #fff;
-            padding: 15px;
-            z-index: 9999; /* 确保在最上层 */
+        /* 主表格 — 整个页面容器 */
+        .main-table {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 3px solid #000080;  /* 海军蓝粗边框 */
+            border-collapse: collapse;
+            box-shadow: 8px 8px 0px #888888;
         }
 
-        /* 左侧栏 - 垂直居中 + 固定显示 */
-        #follow-div {
-            position: fixed;
-            top: 50%; /* 垂直居中 */
-            left: 20px;
-            transform: translateY(-50%); /* 精准垂直居中 */
+        /* 单元格通用 */
+        .main-table td {
+            padding: 6px;
+            vertical-align: top;
+            border: 1px solid #000080;
+        }
+
+        /* 顶部横幅 */
+        .banner {
+            background: #000080;  /* 深蓝 */
+            color: #ffffff;
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+            padding: 16px 10px;
+            letter-spacing: 4px;
+            font-family: "Times New Roman", serif;
+            text-shadow: 2px 2px 0px #000000;
+            border-bottom: 4px solid #ffcc00;
+        }
+        .banner small {
+            font-size: 16px;
+            color: #ffcc00;
+            display: block;
+            letter-spacing: 2px;
+        }
+
+        /* 导航栏（放在顶部横幅下方，可另起一行） */
+        .nav-bar {
+            background: #c0c0c0;
+            padding: 6px 12px;
+            font-size: 15px;
+            font-weight: bold;
+            color: #000080;
+            border-bottom: 2px solid #808080;
+        }
+        .nav-bar a {
+            color: #000080;
+            text-decoration: none;
+            padding: 0 10px;
+            border-right: 1px solid #808080;
+        }
+        .nav-bar a:last-child {
+            border-right: none;
+        }
+        .nav-bar a:hover {
+            background: #ffcc00;
+            color: #000000;
+        }
+
+        /* 左侧栏 (关于我) */
+        .sidebar {
             width: 200px;
-            height: auto; /* 自适应高度，取消固定高度 */
-            background-color: rgb(255, 255, 255);
-            padding: 10px; /* 增加内边距提升可读性 */
-            z-index: 9998; /* 低于导航但高于内容 */
-            border: 1px solid #eee; /* 增加边框避免和背景融合 */
+            background: #f0f0e8;
+            text-align: center;
+            padding: 12px 6px;
+            border-right: 2px solid #000080;
         }
-
-        /* 头像样式 */
-        .avatar {
+        .sidebar .avatar {
+            border: 4px solid #000080;
+            border-radius: 50%;
             width: 100px;
             height: 100px;
-            border-radius: 50%; /* 实现圆形效果 */
-            border: 5px solid #ffffff; /* 添加头像框 */
-            object-fit: cover; /* 确保图片不变形 */
-            display: block; /* 消除默认间隙 */
-            margin: 0 auto 16px; /* 水平居中 */
+            object-fit: cover;
+            margin: 0 auto 10px;
+            background: #ffffff;
+        }
+        .sidebar h2 {
+            font-size: 18px;
+            color: #800000;
+            font-family: "Times New Roman", serif;
+            border-bottom: 2px dotted #800000;
+            padding-bottom: 4px;
+            margin-bottom: 10px;
+        }
+        .sidebar p {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #333333;
+        }
+        .sidebar hr {
+            border: 1px dashed #808080;
+            margin: 10px 0;
+        }
+        /* 计数器（复古） */
+        .counter {
+            background: #000000;
+            color: #00ff00;
+            font-family: "Courier New", monospace;
+            font-size: 22px;
+            font-weight: bold;
+            padding: 4px 10px;
+            letter-spacing: 3px;
+            border: 2px inset #808080;
+            display: inline-block;
+            margin-top: 6px;
         }
 
-        /* 关于我区域 */
-        .about-me {
-            text-align: center; /* 内容居中 */
+        /* 内容区域 */
+        .content {
+            background: #ffffff;
+            padding: 12px 16px;
         }
 
-        /* 板块-文章 */
-        #header { 
-            background-color: orange; 
-            padding: 10px; 
-            text-align: center;
+        /* 公告栏（使用marquee，经典） */
+        .notice-box {
+            background: #ffffcc;
+            border: 2px solid #ff6600;
+            padding: 6px 10px;
+            margin-bottom: 16px;
+            font-size: 14px;
+            color: #990000;
+            font-weight: bold;
         }
-        #menu { 
-            background-color: yellow; 
-            width: 100px; 
-            float: left; 
+        .notice-box marquee {
+            display: block;
         }
-        #content { 
-            background-color: lightgray; 
-            margin-left: 0; /* 修复边距导致的显示问题 */
-            padding: 10px; 
-            width: 100%; /* 确保内容宽度正常 */
+        .notice-close-btn {
+            background: #ff6600;
+            color: #ffffff;
+            border: 1px solid #cc5500;
+            padding: 0 8px;
+            font-weight: bold;
+            cursor: pointer;
+            float: right;
         }
-        #footer { 
-            background-color: orange; 
-            clear: both; 
-            text-align: center; 
+        .notice-close-btn:hover {
+            background: #cc5500;
         }
 
-        /* 新闻列表 */
+        /* 新闻板块 */
         .news-section {
-            margin-bottom: 30px; /* 和文章列表分隔 */
-            width: 100%;
+            margin-bottom: 20px;
+            border: 1px solid #000080;
+            background: #f0f8ff;
+        }
+        .news-header {
+            background: #000080;
+            color: #ffffff;
+            font-weight: bold;
+            padding: 6px 12px;
+            font-size: 16px;
+            letter-spacing: 2px;
         }
         .news-list {
-            list-style-type: none;
-            padding: 0;
+            padding: 8px 12px;
+            list-style-type: square;
+            margin-left: 20px;
         }
         .news-list li {
-            border-bottom: 1px solid #ccc;
-            padding: 10px 0;
-            font-family: Arial, sans-serif;
+            padding: 6px 0;
+            border-bottom: 1px dotted #808080;
         }
-        .news-list li a {
-            text-decoration: none;
-            color: #000;
+        .news-list li:last-child {
+            border-bottom: none;
         }
-        .news-list li a:hover {
-            color: red;
+        .news-list a {
+            color: #0000ff;
             text-decoration: underline;
         }
+        .news-list a:hover {
+            color: #ff0000;
+            background: #ffff00;
+        }
+        .news-list .small {
+            font-size: 12px;
+            color: #666666;
+            margin-left: 12px;
+        }
 
-        /* 文章列表 */
+        /* 文章列表 (翻译板块) */
+        .article-section {
+            border: 1px solid #008000;
+            background: #f5fff5;
+        }
+        .article-header {
+            background: #008000;
+            color: #ffffff;
+            font-weight: bold;
+            padding: 6px 12px;
+            font-size: 16px;
+            letter-spacing: 2px;
+        }
         .article-list {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-            width: 100%;
+            padding: 8px 12px;
         }
-
-        /* 文章项 */
         .article-item {
-            border-bottom: 1px solid #eee;
-            padding-bottom: 16px;
+            padding: 10px 0;
+            border-bottom: 2px solid #c0c0c0;
         }
-
+        .article-item:last-child {
+            border-bottom: none;
+        }
         .article-item a {
-            color: #333;
-            text-decoration: none;
-        }
-
-        .article-item a:hover {
-            color: #666;
+            color: #0000ff;
             text-decoration: underline;
+            font-size: 16px;
+            font-weight: bold;
         }
-
-        .article-item h2 {
-            margin-bottom: 8px;
+        .article-item a:hover {
+            color: #ff00ff;
+            background: #ffff00;
         }
-
-        /* 字体大小类 */
-        .large {
-            font-size: 1.5em; /* 相对于父元素放大1.5倍 */
+        .article-item p {
+            margin: 4px 0;
+            color: #333333;
         }
-        .small {
-            font-size: smaller; /* 相对缩小 */
+        .article-item .small {
+            font-size: 12px;
+            color: #666666;
+        }
+        .article-meta {
+            font-size: 12px;
+            color: #555555;
+            margin-top: 4px;
+        }
+        .tag {
+            background: #ffcc00;
+            color: #000000;
+            padding: 0 8px;
+            border: 1px solid #cc9900;
+            font-size: 11px;
+            font-weight: bold;
         }
 
         /* 页脚 */
-        footer {
-            margin-top: 48px;
+        .footer {
+            background: #000080;
+            color: #ffffff;
             text-align: center;
-            color: #999;
-            padding: 16px 0;
-            clear: both; /* 清除浮动影响 */
-            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border-top: 4px solid #ffcc00;
+            font-family: "Times New Roman", serif;
+        }
+        .footer a {
+            color: #ffcc00;
+            text-decoration: underline;
         }
 
-        .text-center {
-            text-align: center;
-            width: 100%;
+        /* 一些装饰性元素 */
+        .blink {
+            animation: blink 1s step-start infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
         }
 
-        /* 新闻栏标题 */
-        .header {
-            font-weight: bold;
-            font-size: 1.2em;
-            margin-bottom: 10px;
+        hr {
+            border: 1px dashed #000080;
+            margin: 8px 0;
         }
-/* 论坛公告栏样式 */
-.forum-notice {
-    background: linear-gradient(to bottom, #FFF9E8 0%, #FFE8A0 100%); /* 复古论坛黄底渐变 */
-    border: 1px solid #E6B800; /* 金色边框 */
-    border-left: 4px solid #FF6600; /* 左侧醒目红条 */
-    padding: 8px 15px;
-    margin: 0 auto 15px;
-    width: 90%;
-    max-width: 1000px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 14px;
-    color: #C00; /* 公告红字 */
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    position: relative;
-    z-index: 9990;
-}
 
-.notice-icon {
-    font-size: 16px;
-    line-height: 1;
-}
-
-.notice-content {
-    flex: 1;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    /* 可选：开启滚动效果 */
-    /* animation: noticeScroll 15s linear infinite; */
-}
-
-/* 滚动动画（如需开启，取消上面注释） */
-@keyframes noticeScroll {
-    0% {
-        transform: translateX(100%);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
-}
-
-.notice-close {
-    background: #FF6600;
-    color: #fff;
-    border: none;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 12px;
-    line-height: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.notice-close:hover {
-    background: #E55A00;
-}
-
-/* 响应式适配 */
-@media (max-width: 768px) {
-    .forum-notice {
-        width: 98%;
-        padding: 6px 10px;
-        font-size: 12px;
-    }
-}
-
+        /* 响应式处理（保持表格自适应） */
+        @media screen and (max-width: 700px) {
+            .sidebar {
+                width: 100%;
+                display: block;
+                border-right: none;
+                border-bottom: 2px solid #000080;
+            }
+            .main-table td {
+                display: block;
+                width: 100%;
+            }
+            .banner {
+                font-size: 20px;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- 顶部导航 -->
-    <nav>無心寒涵的博客</nav>
 
-    <!-- 左侧栏/关于我 - 全局显示 + 垂直居中 -->
-    <div id="follow-div">
-        <section class="about-me">
-            <img src="./image/img_0899.png" alt="黄天之晨" class="avatar">
+<!-- 主表格布局 -->
+<table class="main-table" cellpadding="0" cellspacing="0">
+    <!-- 顶部横幅 -->
+    <tr>
+        <td colspan="2" class="banner">
+            ✦ 無心寒涵 ✦
+            <small>—— 个人博客 ——</small>
+        </td>
+    </tr>
+    <!-- 导航栏（第二行） -->
+    <tr>
+        <td colspan="2" class="nav-bar">
+            <span style="float:right;color:#000080;">欢迎光临！</span>
+        </td>
+    </tr>
+    <!-- 主体：左侧栏 + 内容 -->
+    <tr>
+        <!-- 左侧栏 -->
+        <td class="sidebar" style="width:220px;">
+            <img src="./image/img_0899.png" alt="头像" class="avatar" />
             <h2>About Me</h2>
-            <p>前美工设计师，现已摆烂。
-                <br>时常研究一些东西。
-                <br>非专业人员。
+            <p>
+                前美工设计师，现已摆烂。<br />
+                时常研究一些东西。<br />
+                <strong>非专业人员</strong>
             </p>
-        </section>
-    </div>
-<!-- 公告栏（放在 nav 标签下方、forum-container 上方） -->
-<div class="forum-notice">
-    <div class="notice-icon">【最近更新】</div>
-    <div class="notice-content" id="noticeText">
-        ChangChw日语VCV音源V1.0已正式配布
-    </div>
-    <button class="notice-close" onclick="closeNotice()">×</button>
-</div>
+            <hr />
+            <div style="font-size:13px; color:#000080;">
+                <span style="font-weight:bold;">神秘数字</span><br />
+                <span class="counter">264895</span>
+            </div>
+            <hr />
+            <div style="font-size:12px; color:#555;">
+                <span class="blink">★</span> 最后更新: 2026-06-22
+            </div>
+            <!-- 复古小图标（纯文本） -->
+            <div style="margin-top:8px;font-size:14px;letter-spacing:2px;">
+                ✉ wuxinhanhan@gmail.com
+            </div>
+        </td>
+        <!-- 内容区域 -->
+        <td class="content">
 
-<!-- 公告栏JS（添加到现有script标签内） -->
+            <!-- 公告栏（带关闭按钮） -->
+            <div class="notice-box" id="noticeBar">
+                <span style="font-weight:bold;color:#ff0000;">【公告】</span>
+                <marquee behavior="scroll" direction="left" scrollamount="4" onmouseover="this.stop()" onmouseout="this.start()">
+                    ChangChw 日语 VCV 音源 V1.0 已正式配布 &nbsp; | &nbsp; 漆島アヤカ V1.1 更新 &nbsp; | &nbsp; 欢迎访问我的小站！
+                </marquee>
+                <button class="notice-close-btn" onclick="closeNotice()">✕</button>
+                <div style="clear:both;"></div>
+            </div>
+
+            <!-- 新闻板块 -->
+            <div class="news-section">
+                <div class="news-header">新闻动态</div>
+                <ul class="news-list">
+                    <li>
+                        <a href="./ChangChw.html">[V1.0] ChangChw 日语 VCV 音源配布</a>
+                        <span class="small">2025-10-01</span>
+                    </li>
+                    <li>
+                        <a href="./漆島アヤカ.html">[V1.1] 漆島アヤカ 日语 VCV 音源配布</a>
+                        <span class="small">2024-01-19</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 文章板块（翻译） -->
+            <div class="article-section">
+                <div class="article-header">翻译作品</div>
+                <div class="article-list">
+                    <div class="article-item">
+                        <a href="Visual Novel Maker-语言配置文件.html">Visual Novel Maker — 语言配置文件</a>
+                        <p>游戏系统默认为英文语言，此为变更成中文语言。</p>
+                        <div class="article-meta">
+                            <span class="tag">翻译</span>
+                            <span class="small">2022-02-06</span>
+                        </div>
+                    </div>
+                    <div class="article-item">
+                        <a href="RPG Maker MV Tools - Database ConVerter MV-中文.html">【已关闭】RPG Maker MV Tools — Database ConVerter MV 中文</a>
+                        <p>参照部分官方中文机翻，部分翻译的时候发现有些词是多意，所以选取了比较符合的翻译，覆盖原语言。</p>
+                        <div class="article-meta">
+                            <span class="tag">翻译</span>
+                            <span class="small">2022-03-06</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <!-- 页脚 -->
+    <tr>
+        <td colspan="2" class="footer">
+            © 2026 無心寒涵 &nbsp;·</span> &nbsp;·&nbsp; 
+            <a href="./关于本站.html">关于本站</a> &nbsp;
+            <br />
+        </td>
+    </tr>
+</table>
+
+<!-- ===== JavaScript ===== -->
 <script>
-// 关闭公告栏（本地存储，关闭后不再显示）
-function closeNotice() {
-    const noticeBar = document.querySelector('.forum-notice');
-    noticeBar.style.display = 'none';
-    localStorage.setItem('noticeClosed', 'true'); // 记录关闭状态
-}
+    // 关闭公告栏 + 本地存储
+    function closeNotice() {
+        var bar = document.getElementById('noticeBar');
+        if (bar) {
+            bar.style.display = 'none';
+            localStorage.setItem('noticeClosed', 'true');
+        }
+    }
+
+    // 如果之前关闭过，则隐藏
+    (function() {
+        if (localStorage.getItem('noticeClosed') === 'true') {
+            var bar = document.getElementById('noticeBar');
+            if (bar) bar.style.display = 'none';
+        }
+    })();
+
+    // 所有链接在当前窗口打开（符合复古习惯）
+    document.addEventListener('DOMContentLoaded', function() {
+        var links = document.querySelectorAll('a');
+        links.forEach(function(link) {
+            link.setAttribute('target', '_self');
+        });
+    });
 </script>
 
-    <!-- 新闻栏 - 显示在最顶部 -->
-    <div class="news-section">
-        <div class="header">新闻</div>
-        <hr>
-        <ul class="news-list">
-            <li>
-                <a href="./ChangChw.html">[V1.0]ChangChw 日语VCV音源配布</a>
-                <p class="small">更新时间：2025-10-01</p>
-            </li>
-        </ul>
-        <ul class="news-list">
-            <li>
-                <a href="./漆島アヤカ.html">[V1.1]漆島アヤカ 日语VCV音源配布</a>
-                <p class="small">更新时间：2024-01-19</p>
-            </li>
-        </ul>
-    </div>
-
-    <!-- 文章目录 - 修复显示问题 + 取消新标签页 -->
-    <div class="text-center">
-        <div id="header">翻译</div>
-        <div id="content">
-            <section class="article-list">
-                <article class="article-item">
-                    <a href="Visual Novel Maker-语言配置文件.html"> <!-- 移除target="_blank" -->
-                        <h2>Visual Novel Maker-语言配置文件</h2>
-                    </a>
-                    <p>游戏系统默认为英文语言，此为变更成中文语言。</p>
-                    <p class="small">更新时间：2022-02-06</p>
-                </article>
-
-                <article class="article-item">
-                    <a href="RPG Maker MV Tools - Database ConVerter MV-中文.html"> <!-- 移除target="_blank" -->
-                        <h2>【已关闭】RPG Maker MV Tools - Database ConVerter MV-中文</h2>
-                    </a>
-                    <p>参照部分官方中文机翻，部分翻译的时候发现有些词是多意，所以选取了比较符合的翻译，覆盖原语言。</p>
-                    <p class="small">更新时间：2022-03-06</p>
-                </article>
-            </section>
-        </div>
-    </div>
-
-    <!-- 日记板块（放在文章列表下方、页脚上方） -->
-<div class="diary-section">
-    <div class="board-title" style="font-size:16px;margin-bottom:10px;">📒 博主日记</div>
-    <div class="diary-list">
-        <!-- 日记条目1 -->
-        <div class="diary-item">
-            <div class="diary-date">2026-02-09</div>
-            <div class="diary-content">
-将近快半年的折磨也是终于离职，开始想干嘛就干嘛的生活，于是乎整理出设计时常用的一些网站，大致上是想到什么就往上放了。
-
-<b>参考&素材</b>
-1.花瓣 https://huaban.com/
-2.小红书 https://www.xiaohongshu.com/explore
-3.享设计 https://www.design006.com/
-
-<b>抠图</b>
-1.免费在线 AI 一键智能抠图 https://www.koukoutu.com/removebgtool/all
-
-<b>矢量图</b>
-1.阿里巴巴矢量图标库 https://www.iconfont.cn/
-2.Illustrations https://undraw.co/illustrations
-
-Illustrations更适合办公素材
-
-<b>字体</b>
-1.字由 https://www.hellofont.cn/
-2.字魂 https://izihun.com/
-3.猫啃 https://www.maoken.com/
-            </div>
-        </div>
-    </div>
-    <!-- 更多日记按钮 -->
-    <div style="text-align:center;margin-top:15px;">
-        <a href="#" class="btn">没有更多日记</a>
-    </div>
-</div>
-
-<!-- 日记板块样式（添加到style标签内） -->
-<style>
-/* 日记板块整体样式 */
-.diary-section {
-    width: 100%;
-    padding: 15px;
-    background-color: #F9FBFD;
-    border: 1px solid #B7C5D3;
-    border-radius: 3px;
-    margin-top: 20px;
-}
-
-/* 日记条目样式 */
-.diary-item {
-    display: flex;
-    margin-bottom: 15px;
-    padding-bottom: 15px;
-    border-bottom: 1px dotted #E0E6ED;
-}
-
-/* 日记日期栏 */
-.diary-date {
-    width: 100px;
-    font-size: 12px;
-    color: #666;
-    font-weight: bold;
-    padding-right: 10px;
-    border-right: 1px solid #E0E6ED;
-    text-align: center;
-}
-
-/* 日记内容 */
-.diary-content {
-    flex: 1;
-    padding-left: 15px;
-    font-size: 14px;
-    line-height: 1.8;
-    color: #333;
-    /* 模拟手写字体质感，可选 */
-    font-family: "仿宋", FangSong, "宋体", SimSun;
-    white-space: pre-line; /* 保留换行 */
-}
-
-/* 响应式适配 */
-@media (max-width: 768px) {
-    .diary-item {
-        flex-direction: column;
-    }
-    .diary-date {
-        width: 100%;
-        border-right: none;
-        border-bottom: 1px solid #E0E6ED;
-        padding-bottom: 5px;
-        margin-bottom: 10px;
-        text-align: left;
-    }
-    .diary-content {
-        padding-left: 0;
-    }
-}
-</style>
-
-    <!-- 版权 -->
-    <footer>
-        <p>© 2026 無心寒涵</p>
-    </footer>
-
-    <!-- 简单JS确保左侧栏在所有页面保持一致（可扩展） -->
-    <script>
-        // 确保左侧栏始终垂直居中（适配窗口大小变化）
-        window.addEventListener('resize', function() {
-            const followDiv = document.getElementById('follow-div');
-            if (followDiv) {
-                followDiv.style.top = '50%';
-                followDiv.style.transform = 'translateY(-50%)';
-            }
-        });
-
-        // 页面加载完成后初始化左侧栏位置
-        window.addEventListener('load', function() {
-            const followDiv = document.getElementById('follow-div');
-            if (followDiv) {
-                followDiv.style.top = '50%';
-                followDiv.style.transform = 'translateY(-50%)';
-            }
-
-            // 修复所有链接点击行为（统一和新闻栏一致）
-            const allLinks = document.querySelectorAll('a');
-            allLinks.forEach(link => {
-                link.target = '_self'; // 强制所有链接在当前标签页打开
-            });
-        });
-    </script>
 </body>
-
 </html>

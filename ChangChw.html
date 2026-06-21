@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="cn">
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Changchw</title>
-    <link rel="stylesheet" href="forum-style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="common.css">
+    <title>ChangChw · 音源配布</title>
     <style>
-        /* 基础样式重置与统一 */
+        /* ===== 复古风格 (全站统一) ===== */
         * {
             margin: 0;
             padding: 0;
@@ -14,204 +14,465 @@
         }
 
         body {
-            font-size: 16px; /* 默认字体大小 */
-            line-height: 1.6;
-            padding: 20px;
-        }
-
-        .large {
-            font-size: 1.5em; /* 相对于父元素放大1.5倍 */
-        }
-
-        .small {
-            font-size: smaller; /* 相对缩小 */
-        }
-
-        /* 页脚 */
-        footer {
-            margin-top: 48px;
-            text-align: center;
-            color: #999;
-            padding: 16px 0;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        #follow-div {
-            position: fixed;
-            top: 50px;
-            left: 50px;
-            width: 200px;
-            height: 200px;
-            background-color: rgb(255, 255, 255);
-        }
-
-        .center-img {
-            display: flex;
-            justify-content: center; /* 水平居中 */
-            align-items: center; /* 垂直居中 */
-            height: 300px; /* 父容器高度 */
-            border: 1px solid #ccc;
-        }
-
-        .resize-img {
-            width: 50%; /* 设置为父元素宽度的 50% */
-            height: auto; /* 自动调整高度以保持比例 */
-        }
-
-        p {
-            white-space: nowrap; /* 强制不换行 */
-            word-break: break-all; /* 强制断行 */
-        }
-
-        /* 定义闪烁动画 */
-        @keyframes blink {
-            0% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0;
-            }
-
-            100% {
-                opacity: 1;
-            }
-        }
-
-        /* 应用动画到类 */
-        .blink {
-            font-size: 24px;
-            color: red;
-            animation: blink 1s infinite;
-        }
-
-        /* 返回按钮样式 */
-        .back-btn {
-            padding: 8px 16px;
-            cursor: pointer;
-            margin-bottom: 20px;
-        }
-
-        /* 下载区域样式 - 解决第115行文字大小同步+同列问题 */
-        .download-area {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin: 10px 0;
-        }
-
-        .download-area p {
-            font-size: 16px; /* 统一文字大小 */
-            white-space: normal; /* 恢复正常换行，保证排版 */
-        }
-
-        .download-area .small {
-            font-size: smaller; /* 保留small样式但保证同列 */
-            margin-left: 5px;
-        }
-
-        .download-btn {
-            padding: 8px 16px;
-            cursor: pointer;
-            margin-top: 5px;
-        }
-
-        /* 醒目化使用条例样式 */
-        .code-section {
-            margin: 30px 0;
-        }
-
-        .usage-rules {
-            border: 2px solid #e74c3c; /* 红色边框醒目 */
-            border-radius: 8px;
-            padding: 20px;
-            background-color: #fdf2e9; /* 浅红背景增强视觉 */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 阴影提升层次感 */
-        }
-
-        .usage-rules summary {
-            font-size: 18px;
-            font-weight: bold;
-            color: #c0392b; /* 深红字 */
-            cursor: pointer;
+            background: #e8e0d0;
+            font-family: "Verdana", "Arial", "Helvetica", sans-serif;
+            font-size: 14px;
+            color: #000000;
             padding: 10px;
-            background-color: #f8e1dd;
-            border-radius: 4px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23e8e0d0'/%3E%3Cpath d='M10 10 L90 10 L90 90 L10 90 Z' fill='none' stroke='%23d5cdb8' stroke-width='1' stroke-dasharray='2 2'/%3E%3C/svg%3E");
         }
 
-        .usage-rules pre {
-            margin-top: 15px;
-            padding: 15px;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+        .main-table {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 3px solid #000080;
+            border-collapse: collapse;
+            box-shadow: 8px 8px 0px #888888;
+        }
+
+        .main-table td {
+            padding: 6px;
+            vertical-align: top;
+            border: 1px solid #000080;
+        }
+
+        /* ===== 顶部横幅 ===== */
+        .banner {
+            background: #000080;
+            color: #ffffff;
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+            padding: 16px 10px;
+            letter-spacing: 4px;
+            font-family: "Times New Roman", serif;
+            text-shadow: 2px 2px 0px #000000;
+            border-bottom: 4px solid #ffcc00;
+        }
+        .banner small {
+            font-size: 16px;
+            color: #ffcc00;
+            display: block;
+            letter-spacing: 2px;
+        }
+
+        /* ===== 导航栏 ===== */
+        .nav-bar {
+            background: #c0c0c0;
+            padding: 6px 12px;
             font-size: 15px;
+            font-weight: bold;
+            color: #000080;
+            border-bottom: 2px solid #808080;
+        }
+        .nav-bar a {
+            color: #000080;
+            text-decoration: none;
+            padding: 0 10px;
+            border-right: 1px solid #808080;
+        }
+        .nav-bar a:last-child {
+            border-right: none;
+        }
+        .nav-bar a:hover {
+            background: #ffcc00;
+            color: #000000;
+        }
+
+        /* ===== 侧边栏 ===== */
+        .sidebar {
+            width: 200px;
+            background: #f0f0e8;
+            text-align: center;
+            padding: 12px 6px;
+            border-right: 2px solid #000080;
+        }
+        .sidebar h2 {
+            font-size: 18px;
+            color: #800000;
+            font-family: "Times New Roman", serif;
+            border-bottom: 2px dotted #800000;
+            padding-bottom: 4px;
+            margin-bottom: 10px;
+        }
+        .sidebar ul {
+            list-style-type: square;
+            text-align: left;
+            margin-left: 20px;
+            font-size: 13px;
+        }
+        .sidebar ul li {
+            padding: 4px 0;
+        }
+        .sidebar ul li a {
+            color: #0000ff;
+            text-decoration: underline;
+        }
+        .sidebar ul li a:hover {
+            color: #ff0000;
+            background: #ffff00;
+        }
+        .sidebar hr {
+            border: 1px dashed #000080;
+            margin: 12px 0;
+        }
+
+        /* ===== 内容区域 ===== */
+        .content {
+            background: #ffffff;
+            padding: 12px 16px;
+        }
+
+        .content .back-link {
+            display: block;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+        .content .back-link a {
+            color: #0000ff;
+            text-decoration: underline;
+        }
+        .content .back-link a:hover {
+            color: #ff0000;
+            background: #ffff00;
+        }
+
+        /* ===== 通用信息块 ===== */
+        .section-box {
+            border: 2px solid #000080;
+            background: #f0f8ff;
+            margin-bottom: 16px;
+        }
+        .section-box .header {
+            background: #000080;
+            color: #ffffff;
+            font-weight: bold;
+            padding: 4px 12px;
+            font-size: 16px;
+            letter-spacing: 2px;
+            font-family: "Times New Roman", serif;
+        }
+        .section-box .body {
+            padding: 8px 12px;
+        }
+        .section-box .body p {
+            margin-bottom: 4px;
             line-height: 1.8;
-            white-space: pre-wrap; /* 允许换行 */
+        }
+
+        /* ===== 角色信息表格（内嵌） ===== */
+        .char-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        .char-table td {
+            padding: 4px 10px;
+            border-bottom: 1px dotted #c0c0c0;
+        }
+        .char-table tr:last-child td {
+            border-bottom: none;
+        }
+        .char-table .label {
+            font-weight: bold;
+            color: #000080;
+            width: 80px;
+        }
+
+        /* ===== 中心图片 ===== */
+        .center-img-wrap {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        .center-img-wrap img {
+            border: 3px solid #000080;
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* ===== 使用条例 (醒目) ===== */
+        .rules-box {
+            border: 3px solid #e74c3c;
+            background: #fdf2e9;
+            margin-bottom: 16px;
+        }
+        .rules-box .header {
+            background: #c0392b;
+            color: #ffffff;
+            font-weight: bold;
+            padding: 4px 12px;
+            font-size: 16px;
+            letter-spacing: 2px;
+            font-family: "Times New Roman", serif;
+            cursor: pointer;
+        }
+        .rules-box .header:hover {
+            background: #a93226;
+        }
+        .rules-box .body {
+            padding: 8px 12px;
+        }
+        .rules-box .body pre {
+            font-family: "Verdana", "Arial", sans-serif;
+            font-size: 14px;
+            line-height: 1.8;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            background: #ffffff;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        .rules-box .body pre .allow {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .rules-box .body pre .forbid {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .rules-box .body pre .other {
+            color: #8e44ad;
+            font-weight: bold;
+        }
+        .rules-box .body pre hr {
+            border: 1px dashed #ccc;
+            margin: 6px 0;
+        }
+
+        /* ===== 下载区域 ===== */
+        .download-item {
+            border: 1px solid #000080;
+            background: #f5f5f5;
+            padding: 10px 14px;
+            margin-bottom: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px 16px;
+        }
+        .download-item .info {
+            flex: 1;
+            min-width: 180px;
+        }
+        .download-item .info .title {
+            font-size: 15px;
+            font-weight: bold;
+        }
+        .download-item .info .date {
+            font-size: 12px;
+            color: #666;
+        }
+        .download-item .info .desc {
+            font-size: 13px;
+            color: #333;
+        }
+        .download-item .blink-tag {
+            font-size: 18px;
+            color: #ff0000;
+            font-weight: bold;
+            animation: blink 1s step-start infinite;
+            margin-right: 4px;
+        }
+        .download-btn {
+            background: #000080;
+            color: #ffffff;
+            border: 2px solid #ffcc00;
+            padding: 6px 20px;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: "Verdana", sans-serif;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+        .download-btn:hover {
+            background: #ffcc00;
+            color: #000000;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        /* ===== 页脚 ===== */
+        .footer {
+            background: #000080;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+            border-top: 4px solid #ffcc00;
+            font-family: "Times New Roman", serif;
+        }
+        .footer a {
+            color: #ffcc00;
+            text-decoration: underline;
+        }
+
+        /* ===== 响应式 ===== */
+        @media screen and (max-width: 700px) {
+            .sidebar {
+                width: 100%;
+                display: block;
+                border-right: none;
+                border-bottom: 2px solid #000080;
+            }
+            .main-table td {
+                display: block;
+                width: 100%;
+            }
+            .banner {
+                font-size: 20px;
+            }
+            .download-item {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .download-btn {
+                align-self: flex-start;
+            }
         }
     </style>
 </head>
-
 <body>
-    <!-- 返回按钮 -->
-    <button class="back-btn" onclick="history.back()">返回上一頁</button>
 
-    <div style="text-align: center;">
-        <img src="./image/3441432-1.output.png" alt="缩小的图片">
-    </div>
+<table class="main-table" cellpadding="0" cellspacing="0">
+    <!-- 顶部横幅 -->
+    <tr>
+        <td colspan="2" class="banner">
+            ✦ 無心寒涵 · 音源库 ✦
+            <small>—— ChangChw · 日语VCV ——</small>
+        </td>
+    </tr>
+    <!-- 导航栏 -->
+    <tr>
+        <td colspan="2" class="nav-bar">
+            <span style="float:right;color:#000080;">▼ ChangChw</span>
+        </td>
+    </tr>
+    <!-- 主体 -->
+    <tr>
+        <!-- 侧边栏 -->
+        <td class="sidebar" style="width:220px;">
+            <div style="font-size:13px; color:#333;">
+                <span style="font-weight:bold;">更新日期</span><br />
+                <span style="background:#000; color:#0f0; padding:2px 10px; font-family:Courier; font-weight:bold;">2025.10.01</span>
+            </div>
+            <hr />
+            <div style="font-size:12px; color:#555;">
+                <span style="animation: blink 1s step-start infinite;">★</span> 版本: V1.0
+            </div>
+        </td>
+        <!-- 内容区域 -->
+        <td class="content">
 
-    <p>性別：男
-        <br>年齡：14
-        <br>生辰：2025-07-23
-        <br>喜歡：可愛的公仔，經營類遊戲，愛講故事
-        <br>討厭：蠢人，逼迫，觸碰
-        <br>夢想：哲學家
-        <br>情緒非常不穩定，有時會因為他人的發言與行動變得暴躁。 <br>正常情況下是一個有求必應的男孩。對待不喜歡的人或對方的態度有着不同的相處方式。 <br>超級愛爆粗口，已經是口癖了。
-        <br>他似乎是唯一一個知曉是書中的人物，承載着作者的痛苦與悲傷中誕生的負面人物，常馳始終認為自己是一個愛憎分明的人物，知道真相的他只會更加認為自己充滿血肉。 <br>他對於作者充滿了恨，是因為作者給的負面情緒，但他又會毫無保留的愛着破碎的作者，只希望作者她可以在現實中繼續前進。
-    </p>
+            <!-- 返回链接 -->
+            <div class="back-link">
+                <a href="javascript:history.back()">&lt;&lt; 返回上一页</a>
+            </div>
 
-<!-- 使用条例 -->
-    <div class="code-section">
-        <details>
-            <summary>使用條例</summary>
-            <pre>
-<p style="color: green;"><b>允许</b></p>
-修改oto文件，降噪音頻。
+            <!-- ===== 角色图片 ===== -->
+            <div class="center-img-wrap">
+                <img src="./image/3441432-1.output.png" alt="ChangChw" style="max-width:400px;" />
+            </div>
+
+            <!-- ===== 角色信息 ===== -->
+            <div class="section-box" id="profile">
+                <div class="header">👤 角色信息</div>
+                <div class="body">
+                    <table class="char-table">
+                        <tr><td class="label">性別</td><td>男</td></tr>
+                        <tr><td class="label">年齡</td><td>14</td></tr>
+                        <tr><td class="label">生辰</td><td>2025-07-23</td></tr>
+                        <tr><td class="label">喜歡</td><td>可愛的公仔，經營類遊戲，愛講故事</td></tr>
+                        <tr><td class="label">討厭</td><td>蠢人，逼迫，觸碰</td></tr>
+                        <tr><td class="label">夢想</td><td>哲學家</td></tr>
+                    </table>
+                    <p style="margin-top:10px; font-size:13px; color:#333; line-height:1.8;">
+                        情緒非常不穩定，有時會因為他人的發言與行動變得暴躁。<br />
+                        正常情況下是一個有求必應的男孩。對待不喜歡的人或對方的態度有着不同的相處方式。<br />
+                        超級愛爆粗口，已經是口癖了。<br />
+                        他似乎是唯一一個知曉是書中的人物，承載着作者的痛苦與悲傷中誕生的負面人物，常馳始終認為自己是一個愛憎分明的人物，知道真相的他只會更加認為自己充滿血肉。<br />
+                        他對於作者充滿了恨，是因為作者給的負面情緒，但他又會毫無保留的愛着破碎的作者，只希望作者她可以在現實中繼續前進。
+                    </p>
+                </div>
+            </div>
+
+            <!-- ===== 使用条例（醒目红色） ===== -->
+            <div class="rules-box" id="rules">
+                <div class="header" onclick="toggleRules()">📜 使用条例 (点击展开/收起)</div>
+                <div class="body" id="rulesBody" style="display:block;">
+                    <pre>
+<span class="allow">【允许】</span>
+修改 oto 文件，降噪音頻。
 允許商業化內容，請事先告知我確認。
-允許同人創作，R18相關內容。
-<hr>
-<p style="color: red;"><b>禁止</b></p>
+允許同人創作，R18 相關內容。
+
+<hr />
+
+<span class="forbid">【禁止】</span>
 禁止複製文件內的任何內容去當做自己或其他行為。
 禁止大改角色的形象，針對於完全認不出或角色該有的東西的情況。
-禁止使用或訓練到AI等相關內容。
+禁止使用或訓練到 AI 等相關內容。
 禁止侵犯他人利益。
 在已知原創作者禁止翻唱等相關行為時，使用該角色或聲音。
 禁止二次發佈！
-<hr>
-<p style="color: yellowgreen;"><b>其他</b></p>
+
+<hr />
+
+<span class="other">【其他】</span>
 條約隨時會更改，不管如何都默認你已知此內容。
 對於沒有說明的內容，可以聯繫我確認。
-</pre>
-</details>
+                    </pre>
+                </div>
+            </div>
 
-    <h2>下载</h2>
+            <!-- ===== 下载区域 ===== -->
+            <div id="download">
+                <div style="font-size:18px; font-weight:bold; color:#000080; font-family:'Times New Roman',serif; border-bottom:2px solid #000080; padding-bottom:4px; margin-bottom:12px;">
+                    ⬇ 下載
+                </div>
 
-    <!-- 下载区域 - 解决文字大小同步+同列问题 -->
-    <div class="download-area">
-        <p><span class="blink">[New]</span>Changchw_ Comprehensive是一款綜合日語音源，其中包含較為強勁的聲音與帶有鼻塞的聲音。</p>
-    </div>
-    <p class="small">配布时间：2025-10-01</p>
-    <a href="https://www.mediafire.com/file/4alqpe3sdk2is5s/Changchw__Comprehensive.rar/file" download="example.pdf">
-        <button class="download-btn">下载文件</button>
-    </a>
+                <!-- 音源1 -->
+                <div class="download-item">
+                    <div class="info">
+                        <div class="title">
+                            <span class="blink-tag">[New]</span>
+                            ChangChw_ Comprehensive · 日本語 VCV <span style="font-size:12px;color:#999;">(V1.0)</span>
+                        </div>
+                        <div class="desc">Changchw_ Comprehensive 是一款綜合日語音源，其中包含較為強勁的聲音與帶有鼻塞的聲音。</div>
+                        <div class="date">配布时间：2025-10-01</div>
+                    </div>
+                    <a href="https://www.mediafire.com/file/4alqpe3sdk2is5s/Changchw__Comprehensive.rar/file">
+                        <button class="download-btn">下载文件</button>
+                    </a>
+                </div>
+            </div>
 
-    <!-- 版权 -->
-    <footer>
-        <p>© 2026 無心寒涵</p>
-    </footer>
+        </td>
+    </tr>
+    <!-- 页脚 -->
+    <tr>
+        <td colspan="2" class="footer">
+            © 2026 無心寒涵 &nbsp;·</span> &nbsp;·&nbsp; 
+            <a href="./关于本站.html">关于本站</a> &nbsp;
+            <br />
+        </td>
+    </tr>
+</table>
+
+<script>
+    // ===== 使用条例折叠 =====
+    function toggleRules() {
+        var body = document.getElementById('rulesBody');
+        if (body.style.display === 'none') {
+            body.style.display = 'block';
+        } else {
+            body.style.display = 'none';
+        }
+    }
+</script>
+
 </body>
 </html>
